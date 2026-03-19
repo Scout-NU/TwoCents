@@ -1,5 +1,12 @@
 # TwoCents
 
+Developers:
+
+* Anna Hall
+* Bella Chin
+* Jolin Yang
+* Madison Seal
+
 ## Local Development
 
 To run the project locally and preview your changes:
