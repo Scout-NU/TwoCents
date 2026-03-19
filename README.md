@@ -12,6 +12,7 @@ Developers:
 To run the project locally and preview your changes:
 
 ```bash
+cd two-cents (make sure you're in this folder)
 npm install
 npm run dev
 ```
