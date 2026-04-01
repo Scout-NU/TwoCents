@@ -90,4 +90,4 @@ Make sure:
 * there is no leftover test code
 * there are no merge conflicts or unnecessary file changes
 
-Do not push directly to `main` or `dev`. Always use a feature branch and PR first.
+Do not push directly to `main`, *push to `dev`*. Always use a feature branch and PR first.
