@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+/* added general text for whole website */
+body {
+  font-family: 'Outfit', sans-serif;
+}
+/* created orange var that is reused */
+.tc-orange {
+  color: #FA9E4D;
+}
+
+header {
+  font-size: large;
+}
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;
