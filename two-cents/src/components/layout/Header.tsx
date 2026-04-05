@@ -13,7 +13,7 @@ const Header = () => {
 
     return (
         
-        <header className="relative flex justify-between items-center gap-2  border bg-white px-7 py-6">
+        <header className="relative flex justify-between items-center gap-2 w-full border bg-white px-7 py-6">
             {/* Logo */}
             <div className="relative">
                 <div className=" whitespace-nowrap mr-8 text-2xl">
@@ -57,7 +57,7 @@ const Header = () => {
                     >{label}</a>
             ))}
             <a 
-            className= {` ${location.pathname === '/join-waitlist' ? "bg-[#FA9E4D] text-white" : ""} $bg-white text-[#FA9E4D]  border border-[#FA9E4D] px-2 rounded-xl pr-4 whitespace-nowrap hover:bg-[#FA9E4D] hover:text-white transition ease-in-out`}
+            className= {` ${location.pathname === '/join-waitlist' ? "bg-[#FA9E4D] text-white" : ""}  text-[#FA9E4D]  border border-[#FA9E4D] px-2 rounded-xl pr-4 whitespace-nowrap hover:bg-[#FA9E4D] hover:text-white transition ease-in-out`}
             href="/join-waitlist" >Join Waitlist</a>
             </nav>
         </div>
