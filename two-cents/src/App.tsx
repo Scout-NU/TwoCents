@@ -1,20 +1,16 @@
-import { useState } from 'react'
-
 import './App.css'
-
-
+import Footer from './components/layout/Footer'
 import Header from './components/layout/Header'
 import { BrowserRouter } from 'react-router-dom'
+import HomepageSkeleton from './HomepageSkeleton'
 
-
-// testing header works -- remove if needed :) 
 function App() {
   return (
-    <>
     <BrowserRouter>
-    <Header />
-   </BrowserRouter>
-    </>
+      <Header />
+      <HomepageSkeleton />
+      <Footer />
+    </BrowserRouter>
   )
 }
 
