@@ -1,6 +1,13 @@
-import PrimaryButton from "../buttons/PrimaryButton";
+import JoinWaitlistSubmissionButton from "../buttons/JoinWaitlistSubmissionButton";
+import { useState } from "react";
 
 function JoinWaitlist() {
+    const[submitted, setSubmitted] = useState(false);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setSubmitted(true);
+    }
     
     return (
         <div className="relative">
@@ -31,25 +38,27 @@ function JoinWaitlist() {
                 className="absolute -left-15 md:left-[11%] lg:left-[7%] bottom-0 w-95 md:w-110 lg:w-125 z-10"/>
 
             {/* Form Card */}
-            <div className="bg-white rounded-3xl shadow-lg p-12 w-100 z-0 text-left">
-                <div className="mb-6">
-                <label className="font-bold text-black block mb-2 text-lg">First Name</label>
-                <input className="w-full border border-gray-200 rounded-full px-4 py-2 bg-gray-50 text-sm" placeholder="Your first name" />
-                </div>
-                <div className="mb-6">
-                <label className="font-bold text-black block mb-2 text-lg">Last Name</label>
-                <input className="w-full border border-gray-200 rounded-full px-4 py-2 bg-gray-50 text-sm" placeholder="Your last name" />
-                </div>
-                <div className="mb-8">
-                <label className="font-bold text-black block mb-2 text-lg">Email</label>
-                <input className="mb-3 w-full border border-gray-200 rounded-full px-4 py-2 bg-gray-50 text-sm" placeholder="Your email" />
-                </div>
+            <form onSubmit={handleSubmit} className="relative z-50">
+                <div className="bg-white rounded-3xl shadow-lg p-12 w-100 relative z-50 text-left">
+                    <div className="mb-6">
+                    <label className="font-bold text-black block mb-2 text-lg">First Name</label>
+                    <input className="w-full border border-gray-200 rounded-full px-4 py-2 bg-gray-50 text-sm" placeholder="Your first name" />
+                    </div>
+                    <div className="mb-6">
+                    <label className="font-bold text-black block mb-2 text-lg">Last Name</label>
+                    <input className="w-full border border-gray-200 rounded-full px-4 py-2 bg-gray-50 text-sm" placeholder="Your last name" />
+                    </div>
+                    <div className="mb-8">
+                    <label className="font-bold text-black block mb-2 text-lg">Email</label>
+                    <input className="mb-3 w-full border border-gray-200 rounded-full px-4 py-2 bg-gray-50 text-sm" placeholder="Your email" />
+                    </div>
 
-                {/* "Join Waitlist" button */}
-                <div className="flex justify-end">
-                    <PrimaryButton buttonColor={"orange"} borderColor={"orange"} textColor={"white"}/>
+                    {/* "Join Waitlist" button */}
+                    <div className="flex justify-end">
+                        <JoinWaitlistSubmissionButton buttonColor={"orange"} borderColor={"orange"} textColor={"white"}/>
+                    </div>
                 </div>
-            </div>
+            </form>
             </div>
     
             {/* Hill Background */}
@@ -57,6 +66,26 @@ function JoinWaitlist() {
                 <img src="/images/Home Screen Layered Hill 1.svg" alt="Hill Background"
                 className="w-full object-cover object-top"/>
             </div>
+
+            {submitted && (
+            <div className="fixed inset-0 flex items-center justify-center bg-black/40 z-50">
+                <div className="bg-white p-8 rounded-2xl shadow-xl text-center w-80">
+                    <h2 className="text-xl font-black mb-4">You've signed up 🎉</h2>
+                    <p className="mb-6 text-gray-600">
+                        Thanks for joining the waitlist - <br />
+                        we'll keep you in the loop about TwoCents!
+                    </p>
+
+                    <button
+                        style={{ backgroundColor: "orange" }}
+                        className="mt-6 text-white px-6 py-2 rounded-full"
+                        onClick={() => setSubmitted(false)}
+                    >
+                        Close
+                    </button>
+                </div>
+            </div>
+        )}
         </div>
     );
 }
