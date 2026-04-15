@@ -1,13 +1,34 @@
 import JoinWaitlistSubmissionButton from "../buttons/JoinWaitlistSubmissionButton";
 import { useState } from "react";
+import { supabase } from "../../lib/supabase";
 
 function JoinWaitlist() {
     const[submitted, setSubmitted] = useState(false);
+    const[firstName, setFirstName] = useState("");
+    const[lastName, setLastName] = useState("");
+    const[email, setEmail] = useState("");
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setSubmitted(true);
-    }
+    
+        const { error } = await supabase
+            .from("waitlist")
+            .insert([
+                {
+                    first_name: firstName,
+                    last_name: lastName,
+                    email: email
+                }
+            ]);
+
+            // clear input forms after submission
+            if (!error) {
+                setSubmitted(true);
+                setFirstName("");
+                setLastName("");
+                setEmail("");
+            }
+    };
     
     return (
         <div className="relative">
@@ -42,15 +63,18 @@ function JoinWaitlist() {
                 <div className="bg-white rounded-3xl shadow-lg p-12 w-100 relative z-50 text-left">
                     <div className="mb-6">
                     <label className="font-bold text-black block mb-2 text-lg">First Name</label>
-                    <input className="w-full border border-gray-200 rounded-full px-4 py-2 bg-gray-50 text-sm" placeholder="Your first name" />
+                    <input className="w-full border border-gray-200 rounded-full px-4 py-2 bg-gray-50 text-sm" placeholder="Your first name" 
+                        value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
                     </div>
                     <div className="mb-6">
                     <label className="font-bold text-black block mb-2 text-lg">Last Name</label>
-                    <input className="w-full border border-gray-200 rounded-full px-4 py-2 bg-gray-50 text-sm" placeholder="Your last name" />
+                    <input className="w-full border border-gray-200 rounded-full px-4 py-2 bg-gray-50 text-sm" placeholder="Your last name" 
+                        value={lastName} onChange={(e) => setLastName(e.target.value)} />
                     </div>
                     <div className="mb-8">
                     <label className="font-bold text-black block mb-2 text-lg">Email</label>
-                    <input className="mb-3 w-full border border-gray-200 rounded-full px-4 py-2 bg-gray-50 text-sm" placeholder="Your email" />
+                    <input className="mb-3 w-full border border-gray-200 rounded-full px-4 py-2 bg-gray-50 text-sm" placeholder="Your email" 
+                        value={email} onChange={(e) => setEmail(e.target.value)} />
                     </div>
 
                     {/* "Join Waitlist" button */}
@@ -78,7 +102,7 @@ function JoinWaitlist() {
 
                     <button
                         style={{ backgroundColor: "orange" }}
-                        className="mt-6 text-white px-6 py-2 rounded-full"
+                        className="mt-6 text-white px-6 py-2 rounded-full cursor-pointer transition-all hover:opacity-80 active:scale-95"
                         onClick={() => setSubmitted(false)}
                     >
                         Close
