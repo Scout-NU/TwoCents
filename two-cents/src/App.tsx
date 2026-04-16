@@ -10,8 +10,12 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<HomepageSkeleton />} />
-        <Route path="/JoinWaitlist" element={<JoinWaitlist />} />
+        <Route path="/" element={<HomePageSkeleton />} />
+        <Route path="/home" element={<HomePageSkeleton />} />
+        {/* <Route path="/about" element={<OurMissionPage />} /> */}
+        <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/join-waitlist" element={<PricingPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer />
     </BrowserRouter>

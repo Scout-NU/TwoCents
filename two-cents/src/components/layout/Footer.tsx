@@ -16,15 +16,17 @@ function Footer() {
 
         {/* Right side - CTA and Social Links */}
         <div className="footer-right">
-          {/* Mascot/Logo */}
-          <div className="footer-mascot">
-            <img src="/images/cento-walking.png" alt="TwoCents Mascot" />
-          </div>
+          <div className="footer-cta-stack">
+            {/* Mascot/Logo */}
+            <div className="footer-mascot">
+              <img src="/images/Cento_walk.svg" alt="TwoCents Mascot" />
+            </div>
 
-          {/* Join Waitlist Button */}
-          <button className="join-waitlist-btn">
-            Join Waitlist
-          </button>
+            {/* Join Waitlist Button */}
+            <button className="join-waitlist-btn">
+              Join Waitlist
+            </button>
+          </div>
 
           {/* Social Media Icons */}
           <div className="social-links">
