@@ -1,13 +1,12 @@
-import {useLocation} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
 
 const Header = () => {
     const [open, setOpen] = useState(false);
-    const location = useLocation();
     const navLinks = [
     {href: "/home", label: "Home"} ,
-    {href: "/about", label: "About"},
+    {href: "/about", label: "Our Mission"},
     {href: "/pricing", label: "Pricing"}];
     
 
@@ -26,16 +25,21 @@ const Header = () => {
             <nav className="items-center font-semibold hidden md:flex" >
             <div className="flex gap-10">
                 {navLinks.map(({label, href}) => (
-                    <a
+                    <NavLink
                         key={label} 
-                        href={href} 
-                        className={location.pathname === href ? "underline decoration-[0.75px] underline-offset-2" : ""}
+                        to={href} 
+                        className={({ isActive }) => isActive ? "underline decoration-[0.75px] underline-offset-2" : ""}
                         >
                         {label}
-                    </a>
+                    </NavLink>
                 ))}
                 
-                <a className="text-[#FA9E4D] bg-white border border-[#FA9E4D] px-2 rounded-xl pr-4 whitespace-nowrap hover:bg-[#FA9E4D] hover:text-white transition ease-in-out" href="/join-waitlist" >Join Waitlist</a>
+                <NavLink
+                  className={({ isActive }) => `${isActive ? "bg-[#FA9E4D] text-white" : "bg-white text-[#FA9E4D]"} border border-[#FA9E4D] px-2 rounded-xl pr-4 whitespace-nowrap hover:bg-[#FA9E4D] hover:text-white transition ease-in-out`}
+                  to="/join-waitlist"
+                >
+                  Join Waitlist
+                </NavLink>
             </div>
             </nav>
             {/* Hamburger */}
@@ -49,16 +53,20 @@ const Header = () => {
             {/* Mobile Dropdown */}
             <nav className=" flex flex-col mt-20 items-center gap-8 text-lg font-semibold">
             {navLinks.map(({label, href}) => (
-                <a
+                                <NavLink
                     key={label}
-                    href={href}
+                                        to={href}
                     onClick={() => setOpen(false)}
-                    className={location.pathname === href ? "underline decoration-[0.75px] underline-offset-2" : ""}
-                    >{label}</a>
-            ))}
-            <a 
-            className= {` ${location.pathname === '/join-waitlist' ? "bg-[#FA9E4D] text-white" : ""} $bg-white text-[#FA9E4D]  border border-[#FA9E4D] px-2 rounded-xl pr-4 whitespace-nowrap hover:bg-[#FA9E4D] hover:text-white transition ease-in-out`}
-            href="/join-waitlist" >Join Waitlist</a>
+                                        className={({ isActive }) => isActive ? "underline decoration-[0.75px] underline-offset-2" : ""}
+                                        >{label}</NavLink>
+                        ))}
+                        <NavLink
+                            className={({ isActive }) => `${isActive ? "bg-[#FA9E4D] text-white" : "bg-white text-[#FA9E4D]"} border border-[#FA9E4D] px-2 rounded-xl pr-4 whitespace-nowrap hover:bg-[#FA9E4D] hover:text-white transition ease-in-out`}
+                            onClick={() => setOpen(false)}
+                            to="/join-waitlist"
+                        >
+                            Join Waitlist
+                        </NavLink>
             </nav>
         </div>
     </header>

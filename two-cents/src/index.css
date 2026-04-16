@@ -65,6 +65,16 @@
   box-sizing: border-box;
 }
 
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main > * {
+  width: 100%;
+}
+
 body {
   margin: 0;
 }
@@ -114,7 +124,7 @@ code {
 }
 
 .footer {
-  margin-top: auto;
+  margin-top: 0;
   background: linear-gradient(135deg, #1F6A9D 0%, #4A8FB8 100%);
   padding: clamp(1rem, 2vw, 2rem) clamp(0.75rem, 2vw, 1.5rem);
   color: white;
@@ -168,10 +178,17 @@ code {
 .footer-right {
   display: flex;
   align-items: flex-end;
-  gap: 1.1em;
+  gap: 1em;
   flex: 1 1 360px;
   justify-content: flex-end;
   flex-direction: column;
+}
+
+.footer-cta-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
 }
 
 .footer-mascot {
@@ -180,6 +197,7 @@ code {
 }
 
 .footer-mascot img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -251,6 +269,10 @@ code {
   .footer-right {
     justify-content: center;
     flex-basis: 100%;
+    align-items: center;
+  }
+
+  .footer-cta-stack {
     align-items: center;
   }
 }
@@ -391,5 +413,280 @@ code {
 @media (max-width: 480px) {
   .waitlist-title {
     font-size: 1.35rem;
+  }
+}
+
+/* Page Container */
+.pricing-page {
+  min-height: 100vh;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  box-sizing: border-box;
+  background-color: #ffffff;
+  background-image: url('/images/Our-Plan-Hill.svg');
+  background-size: 100% auto;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Pricing Header */
+.pricing-header {
+  text-align: center;
+  padding: clamp(2.5rem, 5.5vw, 5rem) 2rem clamp(1.25rem, 3vw, 2.25rem);
+}
+
+.pricing-main-title {
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: clamp(2rem, 4vw, 3rem); /* Significantly increased */
+  margin-top: 0;
+}
+
+.pricing-subtitle {
+  font-size: clamp(1.15rem, 3vw, 1.5rem);
+  font-weight: 600;
+  color: #333;
+  margin-bottom: clamp(1.5rem, 2.5vw, 2rem); /* Increased */
+  margin-top: 0;
+}
+
+/* Pricing Options Container */
+.pricing-options-section {
+  padding: clamp(2rem, 4.5vw, 3.5rem) clamp(1rem, 3vw, 2rem) clamp(2rem, 5vw, 4rem);
+}
+
+.pricing-options-shell {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: clamp(2rem, 3vw, 3rem);
+  border: none;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.5); /* Subtle white background */
+  box-shadow: 
+    0 20px 60px rgba(82, 174, 239, 0.25),
+    0 8px 24px rgba(0, 0, 0, 0.1); /* Noticeable drop shadow */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.pricing-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Individual Pricing Card - NOW RECTANGULAR */
+.pricing-card {
+  background: white;
+  border-radius: 16px; /* Reduced from 24px for more rectangular feel */
+  padding: clamp(2.5rem, 3.5vw, 3rem) clamp(1.75rem, 2.5vw, 2.25rem);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 480px; /* Ensures rectangular proportion */
+  aspect-ratio: auto; /* Allows natural rectangle shape */
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
+}
+
+/* Card Header */
+.pricing-card-header {
+  text-align: center;
+  margin-bottom: clamp(2rem, 3.5vw, 3rem);
+  position: relative;
+  padding-top: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* Large background number - extends down */
+.price-number {
+  position: absolute;
+  font-size: clamp(12rem, 20vw, 16rem);
+  font-weight: 900;
+  color: #F9C669;
+  opacity: 0.12;
+  z-index: 0;
+  top: clamp(-2rem, -3vw, -3rem);
+  left: 50%;
+  transform: translateX(-50%) scaleX(0.9); 
+  line-height: 0.9;
+  pointer-events: none;
+}
+
+.plan-name {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  margin-top: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Price WITHOUT yellow circle */
+.plan-price {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(3px, 0.6vw, 5px);
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.price-symbol {
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1;
+  margin-bottom: clamp(0.5rem, 1vw, 0.7rem);
+}
+
+.price-amount {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 800;
+  color: #1a1a1a;
+  line-height: 1;
+  margin: 0;
+}
+
+.price-period {
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-weight: 600;
+  color: #666;
+  line-height: 1;
+  margin-bottom: clamp(0.25rem, 0.6vw, 0.4rem);
+}
+
+/* Plan Features */
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  flex-grow: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.plan-features li {
+  padding: clamp(0.7rem, 1.5vw, 0.95rem) 0;
+  padding-left: 1.75rem;
+  color: #1a1a1a;
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  line-height: 1.5;
+  text-align: left;
+  position: relative;
+}
+
+.plan-features li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #000000;
+  font-weight: 900;
+  font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+  line-height: 1;
+  top: clamp(0.7rem, 1.5vw, 0.95rem);
+}
+
+/* CTA Section with Mascot */
+.cta-with-mascot {
+  position: relative;
+  padding: clamp(0.5rem, 2vw, 1rem) 2rem clamp(3rem, 6vw, 5rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0; /* Changed from auto */
+}
+
+.pricing-mascot {
+  position: absolute;
+  left: clamp(8%, 12vw, 15%); /* Moved from 3-8% to 8-15% (more right) */
+  top: clamp(-12rem, -18vw, -15rem);
+  width: clamp(260px, 32vw, 420px); /* Increased from 240px-380px to 260px-420px */
+  height: auto;
+  z-index: 10;
+}
+
+
+/* Responsive */
+@media (max-width: 599px) {
+  .pricing-mascot {
+    display: block; /* Show on mobile */
+    position: relative;
+    left: auto;
+    top: auto;
+    width: clamp(180px, 45vw, 220px);
+    margin: -3rem auto 2rem;
+  }
+  
+  .cta-with-mascot {
+    flex-direction: column;
+    padding: 0 1rem 3rem;
+  }
+}
+
+/* Tablet Landscape (900px - 1200px) */
+@media (min-width: 900px) and (max-width: 1200px) {
+  .pricing-cards-container {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 950px;
+  }
+  
+  .pricing-page {
+    background-size: 100% auto;
+    background-position: center bottom;
+  }
+}
+
+/* Tablet Portrait (600px - 899px) */
+@media (min-width: 600px) and (max-width: 899px) {
+  .pricing-cards-container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    max-width: 700px;
+  }
+  
+  .pricing-page {
+    background-size: 120% auto;
+    background-position: center bottom;
+  }
+}
+
+/* Mobile (below 600px) */
+@media (max-width: 599px) {
+  .pricing-options-shell {
+    border-radius: 20px;
+    padding: 0.9rem;
+  }
+
+  .pricing-page {
+    background-size: 150% auto;
+    background-position: center bottom;
+  }
+
+  .pricing-cards-container {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+  }
+
+  .pricing-card {
+    min-height: 420px;
+  }
+
+  .pricing-mascot {
+    display: none;
   }
 }
