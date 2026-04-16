@@ -18,7 +18,7 @@ function Footer() {
         <div className="footer-right">
           {/* Mascot/Logo */}
           <div className="footer-mascot">
-            <img src="/assets/mascot.png" alt="TwoCents Mascot" />
+            <img src="/images/cento-walking.png" alt="TwoCents Mascot" />
           </div>
 
           {/* Join Waitlist Button */}
