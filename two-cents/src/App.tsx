@@ -1,10 +1,9 @@
 import './App.css'
 import Footer from './components/layout/Footer'
 import Header from './components/layout/Header'
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
-import HomePageSkeleton from './HomepageSkeleton'
-// import OurMissionPage from './pages/OurMission'
-import PricingPage from './pages/Pricing'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import HomepageSkeleton from './HomepageSkeleton'
+import JoinWaitlist from './components/layout/JoinWaitlist'
 
 function App() {
   return (
