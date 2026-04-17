@@ -2,19 +2,29 @@ type PrimaryButtonProps = {
     buttonColor: string;
     borderColor: string;
     textColor: string;
+    buttonWidth?: string;
+    buttonHeight?: string;
+    fontSize?: string
+
 
   };
 
-const PrimaryButton = ({buttonColor, borderColor, textColor}: PrimaryButtonProps) => {
+  const PrimaryButton = ({buttonColor, borderColor, textColor, buttonWidth, buttonHeight, fontSize}: PrimaryButtonProps) => {
     return (
         <a
         href="/join-waitlist"
-        className="px-2 pr-4 rounded-xl whitespace-nowrap border font-semibold"
-        style={{backgroundColor: buttonColor,
-        borderColor: borderColor,
-        color: textColor}}> Join Waitlist
+        className=" whitespace-nowrap border flex items-center justify-center rounded-4xl tracking-normal"
+        style={{
+            backgroundColor: buttonColor,
+            borderColor: borderColor,
+            color: textColor,
+            height: buttonHeight, 
+            width: buttonWidth,
+            fontSize: fontSize
+        }}> Join Waitlist
         </a>
     )
 }
+
 
 export default PrimaryButton
