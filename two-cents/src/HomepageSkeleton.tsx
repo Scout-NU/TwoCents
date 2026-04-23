@@ -23,7 +23,7 @@ function HomepageSkeleton() {
                 Spend and save with TwoCents, your allocation assistant.
               </p>
               <img 
-                src="/images/cento-waving.png" 
+                src="/images/cento-walking.png" 
                 alt="Cento mascot" 
                 className="hero-mascot"
               />
