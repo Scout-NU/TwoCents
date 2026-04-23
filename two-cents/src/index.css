@@ -54,11 +54,11 @@
 }
 
 #root {
-  width: 1126px;
+  width: 100%; /* Changed from 1126px */
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
-  border-inline: 1px solid var(--border);
+  border-inline: none; /* Remove side borders */
   min-height: 100svh;
   display: flex;
   flex-direction: column;
@@ -261,5 +261,162 @@ code {
     justify-content: center;
     flex-basis: 100%;
     align-items: center;
+  }
+}
+
+/* Hero Section */
+#hero {
+  position: relative;
+  padding: clamp(3rem, 8vw, 6rem) clamp(2rem, 5vw, 4rem);
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: white;
+}
+
+.hero-eyebrow {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.15rem, 3.5vw, 2.5rem);
+  color: #FF8C42;
+  margin-bottom: 0.1rem; /* Very tight */
+  font-weight: 400;
+  padding-left: calc(0.5rem + 1.2ch);
+  line-height: 0.9; /* Extra tight */
+}
+
+.hero-title {
+  font-size: clamp(1.75rem, 6vw, 4.5rem);
+  font-weight: 800;
+  color: #1a1a1a;
+  line-height: 1.05; /* Tighter */
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  padding-left: 0;
+}
+
+.strikethrough {
+  position: relative;
+  display: inline-block;
+}
+
+.strikethrough::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 3px;
+  background: #FA9E4D;
+  transform: translateY(-50%); /* Removed rotate(-2deg) */
+}
+
+
+.hero-subtitle {
+  font-size: clamp(0.95rem, 2.5vw, 1.5rem); /* Smaller min size for mobile */
+  color: #333;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.hero-cta-button {
+  background: transparent; /* Changed from gradient */
+  color: #FF8C42; /* Orange text */
+  border: 2px solid #FF8C42; /* Orange outline */
+  border-radius: 50px;
+  padding: 0.5rem 1.25rem;
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: none; /* Remove shadow */
+  align-self: flex-start;
+  width: auto;
+}
+
+.hero-cta-button:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 140, 66, 0.05); /* Subtle orange tint on hover */
+  box-shadow: 0 4px 12px rgba(255, 140, 66, 0.2);
+}
+
+.hero-mascot {
+  position: absolute;
+  right: clamp(2%, 5vw + 1rem, 10%); /* Dynamically moves with screen size */
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(160px, 20vw, 300px); /* Scales with screen */
+  height: auto;
+  z-index: 3;
+}
+
+/* Hide on iPad and below */
+@media (max-width: 1024px) {
+  .hero-mascot {
+    display: none;
+  }
+}
+
+/* Show only on larger screens */
+@media (min-width: 1025px) {
+  .hero-mascot {
+    display: block;
+  }
+}
+
+
+#hero > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #hero {
+    text-align: left; /* Keep left-aligned, not center */
+    padding: 3rem 1.5rem;
+  }
+
+  .hero-eyebrow {
+    padding-left: 0; /* No indent on mobile */
+    text-align: left;
+  }
+
+  .hero-title,
+  .hero-subtitle {
+    max-width: 100%;
+    text-align: left; /* Explicitly left-aligned */
+  }
+
+  .hero-cta-button {
+    align-self: flex-start; /* Button stays on left */
+  }
+
+  .hero-mascot {
+    position: static;
+    margin: 2rem auto 0;
+    width: 200px;
+  }
+
+  #hero::after {
+    display: none;
+  }
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+}
+
+#root {
+  background: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .hero-mascot {
+    display: none;
   }
 }
