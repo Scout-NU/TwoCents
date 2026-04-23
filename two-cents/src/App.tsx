@@ -1,16 +1,20 @@
+
 import './App.css'
-import Footer from './components/layout/Footer'
-import Header from './components/layout/Header'
 import { BrowserRouter } from 'react-router-dom'
-import HomepageSkeleton from './HomepageSkeleton'
+
+import CentoSpeechBubble from './components/SpeechBubble'
+import SpeechBubble from "./components/SpeechBubble"
+import WaitListJoin from './components/WaitlistJoin'
+
+
 
 function App() {
   return (
+    <>
     <BrowserRouter>
-      <Header />
-      <HomepageSkeleton />
-      <Footer />
+    <SpeechBubble />
     </BrowserRouter>
+    </>
   )
 }
 
