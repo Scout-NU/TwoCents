@@ -1,13 +1,18 @@
+
 import './App.css'
 import Footer from './components/layout/Footer'
 import Header from './components/layout/Header'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import HomepageSkeleton from './HomepageSkeleton'
 import JoinWaitlist from './components/layout/JoinWaitlist'
+import CentoSpeechBubble from './components/SpeechBubble'
+import SpeechBubble from "./components/SpeechBubble"
 
 function App() {
   return (
+    <>
     <BrowserRouter>
+    <SpeechBubble />
       <Header />
       <Routes>
         <Route path="/" element={<HomePageSkeleton />} />
@@ -19,6 +24,7 @@ function App() {
       </Routes>
       <Footer />
     </BrowserRouter>
+    </>
   )
 }
 
