@@ -13,15 +13,14 @@ const Header = () => {
 
     return (
         
-        <header className="relative flex justify-between items-center gap-2 w-full border bg-white px-7 py-6">
-            {/* Logo */}
-            <div className="relative">
-                <div className=" whitespace-nowrap mr-8 text-2xl">
-                    <span className="text-[#FA9E4D]"> Two  </span><span className="text-[#52AEEF]"> Cents </span>
+        <header className="relative flex justify-between items-center gap-2 w-full  bg-white px-7 py-6 z-40 md:z-60">
+            <div>
+            <img 
+            src="/media/Logo.svg"
+            className="h-16 md:h-18 w-auto object-contain"
+            />
             </div>
-            <img  className="w-12 absolute top-1 right-19" src="/images/centy-bill.png"></img>
-            </div>
-
+            
             {/* Desktop NavBar */}
             <nav className="items-center font-semibold hidden md:flex" >
             <div className="flex gap-10">
@@ -34,7 +33,6 @@ const Header = () => {
                         {label}
                     </a>
                 ))}
-                
                 <a className="text-[#FA9E4D] bg-white border border-[#FA9E4D] px-2 rounded-xl pr-4 whitespace-nowrap hover:bg-[#FA9E4D] hover:text-white transition ease-in-out" href="/join-waitlist" >Join Waitlist</a>
             </div>
             </nav>

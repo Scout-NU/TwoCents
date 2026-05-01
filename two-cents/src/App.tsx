@@ -1,3 +1,4 @@
+
 import './App.css'
 import Footer from './components/layout/Footer'
 import Header from './components/layout/Header'
@@ -5,15 +6,22 @@ import Header from './components/layout/Header'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import HomepageSkeleton from './HomepageSkeleton'
 import JoinWaitlist from './components/layout/JoinWaitlist'
+<<<<<<< HEAD
 =======
 import { BrowserRouter } from 'react-router-dom'
 // import HomepageSkeleton from './pages/HomepageSkeleton'
 import ExploreOurFeatures from './pages/ExploreOurFeatures'
 >>>>>>> 8089597 (Add Feature Slider and Explore Features Initial rendition -- still need to test)
+=======
+import CentoSpeechBubble from './components/SpeechBubble'
+import SpeechBubble from "./components/SpeechBubble"
+>>>>>>> origin/dev
 
 function App() {
   return (
+    <>
     <BrowserRouter>
+    <SpeechBubble />
       <Header />
 <<<<<<< HEAD
       <Routes>
@@ -30,6 +38,7 @@ function App() {
 >>>>>>> 8089597 (Add Feature Slider and Explore Features Initial rendition -- still need to test)
       <Footer />
     </BrowserRouter>
+    </>
   )
 }
 
