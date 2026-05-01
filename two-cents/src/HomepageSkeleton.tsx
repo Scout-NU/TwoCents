@@ -1,3 +1,5 @@
+import Waitlist from "./components/layout/Waitlist";
+
 function HomepageSkeleton() {
     return (
       <>
@@ -74,6 +76,7 @@ function HomepageSkeleton() {
           </section><br />
   
           <section id="join-waitlist">
+            <Waitlist />
             <h2>Start spending and saving with confidence.</h2>
             <button>Join Waitlist</button>
           </section><br />
