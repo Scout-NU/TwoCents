@@ -1,18 +1,28 @@
 
 import './App.css'
-import { BrowserRouter } from 'react-router-dom'
-
+import Footer from './components/layout/Footer'
+import Header from './components/layout/Header'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import HomepageSkeleton from './HomepageSkeleton'
+import JoinWaitlist from './components/layout/JoinWaitlist'
 import CentoSpeechBubble from './components/SpeechBubble'
 import SpeechBubble from "./components/SpeechBubble"
-import WaitListJoin from './components/WaitlistJoin'
-
-
 
 function App() {
   return (
     <>
     <BrowserRouter>
     <SpeechBubble />
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePageSkeleton />} />
+        <Route path="/home" element={<HomePageSkeleton />} />
+        {/* <Route path="/about" element={<OurMissionPage />} /> */}
+        <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/join-waitlist" element={<PricingPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+      <Footer />
     </BrowserRouter>
     </>
   )

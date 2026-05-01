@@ -1,3 +1,5 @@
+import Waitlist from "./components/layout/Waitlist";
+
 function HomepageSkeleton() {
     return (
       <>
@@ -9,12 +11,28 @@ function HomepageSkeleton() {
         <main>
   
           <section id="hero">
-            {/* main heading */}
-            <h1>A financial health app that gets it.</h1>
-            {/* subheading */}
-            <h3>Spend and save with TwoCents, your allocation assistant.</h3>
-            {/* join waitlist button */}
-            <button>Join Waitlist</button>
+            {/* Eyebrow text */}
+            <p className="hero-eyebrow">financial health</p>
+            
+            {/* Main heading */}
+            <h1 className="hero-title">
+              A <span className="strikethrough">budgeting</span> app that gets it.
+            </h1>
+            
+            {/* Subheading + Mascot */}
+            <div className="hero-subtitle-row">
+              <p className="hero-subtitle">
+                Spend and save with TwoCents, your allocation assistant.
+              </p>
+              <img 
+                src="/images/cento-walking.png" 
+                alt="Cento mascot" 
+                className="hero-mascot"
+              />
+            </div>
+            
+            {/* Join waitlist button */}
+            <button className="hero-cta-button">Join Waitlist</button>
           </section>
           <br />
   
@@ -58,6 +76,7 @@ function HomepageSkeleton() {
           </section><br />
   
           <section id="join-waitlist">
+            <Waitlist />
             <h2>Start spending and saving with confidence.</h2>
             <button>Join Waitlist</button>
           </section><br />
