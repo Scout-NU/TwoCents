@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import "./FeatureSlider.css";
 
 interface Slide {
@@ -33,6 +33,7 @@ const slides: Slide[] = [
       "See progress toward what matters most",
     ],
     imageAlt: "Priorities feature app screenshot",
+    placeholderSrc: "/images/Feature%20Image.png",
   },
   {
     title: "Real-Time Bank Sync",
@@ -44,100 +45,55 @@ const slides: Slide[] = [
       "Always accurate, always up to date",
     ],
     imageAlt: "Real-time bank sync app screenshot",
+    placeholderSrc: "/images/Feature%20Image.png",
   },
 ];
 
 export default function FeatureSlider() {
   const [current, setCurrent] = useState(0);
-  const startX = useRef<number | null>(null);
-  const isDragging = useRef(false);
 
-  const goTo = (index: number) => {
-    setCurrent(Math.max(0, Math.min(index, slides.length - 1)));
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    startX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (startX.current === null) return;
-    const diff = startX.current - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 40) {
-      goTo(diff > 0 ? current + 1 : current - 1);
-    }
-    startX.current = null;
-  };
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    startX.current = e.clientX;
-    isDragging.current = false;
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (startX.current !== null && Math.abs(e.clientX - startX.current) > 5) {
-      isDragging.current = true;
-    }
-  };
-
-  const handleMouseUp = (e: React.MouseEvent) => {
-    if (startX.current === null) return;
-    const diff = startX.current - e.clientX;
-    if (isDragging.current && Math.abs(diff) > 40) {
-      goTo(diff > 0 ? current + 1 : current - 1);
-    }
-    startX.current = null;
-    isDragging.current = false;
-  };
+  const goTo = (index: number) => setCurrent(index);
 
   const slide = slides[current];
 
   return (
     <section className="feature-slider-section">
-      <div
-        className="feature-slider-card"
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-      >
-        {/* Feature image */}
-        <div className="feature-slider-image-wrap">
-          <img
-            src={slide.imageSrc || slide.placeholderSrc || ""}
-            alt={slide.imageAlt}
-            className="feature-slider-screenshot"
-          />
-        </div>
+      <div className="feature-slider-card">
+        <div className="feature-slider-card-body">
+          <div className="feature-slider-image-wrap">
+            <img
+              src={slide.imageSrc || slide.placeholderSrc || ""}
+              alt={slide.imageAlt}
+              className="feature-slider-screenshot"
+            />
+          </div>
 
-        {/* Text content */}
-        <div className="feature-slider-content">
-          <h2 className="feature-slider-title">{slide.title}</h2>
-          <p className="feature-slider-description">{slide.description}</p>
-          <div className="feature-slider-highlights">
-            <p className="feature-slider-highlights-label">Highlights</p>
-            <ul className="feature-slider-highlights-list">
-              {slide.highlights.map((item, i) => (
-                <li key={i} className="feature-slider-highlight-item">
-                  {item}
-                </li>
-              ))}
-            </ul>
+          <div className="feature-slider-content">
+            <h2 className="feature-slider-title">{slide.title}</h2>
+            <p className="feature-slider-description">{slide.description}</p>
+            <div className="feature-slider-highlights">
+              <p className="feature-slider-highlights-label">Highlights</p>
+              <ul className="feature-slider-highlights-list">
+                {slide.highlights.map((item, i) => (
+                  <li key={i} className="feature-slider-highlight-item">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Dot navigation */}
-      <div className="feature-slider-dots">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            className={`feature-slider-dot${i === current ? " active" : ""}`}
-            onClick={() => goTo(i)}
-            aria-label={`Go to slide ${i + 1}`}
-          />
-        ))}
+        <div className="feature-slider-dots">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              className={`feature-slider-dot${i === current ? " active" : ""}`}
+              onClick={() => goTo(i)}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

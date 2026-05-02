@@ -12,10 +12,9 @@
 /* ── Card ── */
 .feature-slider-card {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
-  align-items: center;
-  padding: 60px 0;
+  padding: 60px 0 40px;
   background: #FFF;
   border: 1px solid #D9D9D9;
   border-radius: 30px;
@@ -27,6 +26,15 @@
 
 .feature-slider-card:active {
   cursor: grabbing;
+}
+
+/* ── Card body: image + text row ── */
+.feature-slider-card-body {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  gap: 0;
 }
 
 /* ── Image side — grey border box ── */
@@ -131,13 +139,13 @@
   flex-shrink: 0;
 }
 
-/* ── Dots ── */
+/* ── Dots (inside card) ── */
 .feature-slider-dots {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin-top: 24px;
+  padding-top: 36px;
 }
 
 .feature-slider-dot {
@@ -150,23 +158,17 @@
   cursor: pointer;
   padding: 0;
   flex-shrink: 0;
-  transition: background-color 0.25s ease, transform 0.2s ease;
+  transition: background-color 0.25s ease;
   appearance: none;
   -webkit-appearance: none;
 }
 
 .feature-slider-dot.active {
   background-color: #555555;
-  transform: scale(1.2);
-}
-
-.feature-slider-dot:hover:not(.active) {
-  background-color: #999;
 }
 
 .feature-slider-dot:focus {
-  outline: 2px solid #FA9E4D;
-  outline-offset: 3px;
+  outline: none;
 }
 
 /* ── Stacks to column at 1100px ── */
@@ -176,9 +178,12 @@
   }
 
   .feature-slider-card {
+    padding: 40px 32px 32px !important;
+  }
+
+  .feature-slider-card-body {
     flex-direction: column !important;
     align-items: center !important;
-    padding: 40px 32px !important;
     gap: 32px !important;
   }
 
@@ -227,8 +232,11 @@
   }
 
   .feature-slider-card {
-    padding: 28px 22px !important;
+    padding: 28px 22px 24px !important;
     border-radius: 16px !important;
+  }
+
+  .feature-slider-card-body {
     gap: 24px !important;
   }
 
