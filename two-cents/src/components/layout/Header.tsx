@@ -1,5 +1,6 @@
 import {useLocation} from "react-router-dom";
 import { useState } from "react";
+import JoinWaitlistSubmissionButton from "../buttons/JoinWaitlistSubmissionButton";
 
 
 const Header = () => {
@@ -23,7 +24,7 @@ const Header = () => {
             
             {/* Desktop NavBar */}
             <nav className="items-center font-semibold hidden md:flex" >
-            <div className="flex gap-10">
+            <div className="flex gap-10 items-center">
                 {navLinks.map(({label, href}) => (
                     <a
                         key={label} 
@@ -33,7 +34,7 @@ const Header = () => {
                         {label}
                     </a>
                 ))}
-                <a className="text-[#FA9E4D] bg-white border border-[#FA9E4D] px-2 rounded-xl pr-4 whitespace-nowrap hover:bg-[#FA9E4D] hover:text-white transition ease-in-out" href="/join-waitlist" >Join Waitlist</a>
+                <a href="/join-waitlist"><JoinWaitlistSubmissionButton buttonColor="white" borderColor="#FA9E4D" textColor="#FA9E4D" /></a>
             </div>
             </nav>
             {/* Hamburger */}
@@ -54,9 +55,7 @@ const Header = () => {
                     className={location.pathname === href ? "underline decoration-[0.75px] underline-offset-2" : ""}
                     >{label}</a>
             ))}
-            <a 
-            className= {` ${location.pathname === '/join-waitlist' ? "bg-[#FA9E4D] text-white" : ""}  text-[#FA9E4D]  border border-[#FA9E4D] px-2 rounded-xl pr-4 whitespace-nowrap hover:bg-[#FA9E4D] hover:text-white transition ease-in-out`}
-            href="/join-waitlist" >Join Waitlist</a>
+            <a href="/join-waitlist"><JoinWaitlistSubmissionButton buttonColor="white" borderColor="#FA9E4D" textColor="#FA9E4D" /></a>
             </nav>
         </div>
     </header>

@@ -1,44 +1,17 @@
-
 import './App.css'
-import Footer from './components/layout/Footer'
-import Header from './components/layout/Header'
-<<<<<<< HEAD
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import HomepageSkeleton from './HomepageSkeleton'
-import JoinWaitlist from './components/layout/JoinWaitlist'
-<<<<<<< HEAD
-=======
-import { BrowserRouter } from 'react-router-dom'
-// import HomepageSkeleton from './pages/HomepageSkeleton'
-import ExploreOurFeatures from './pages/ExploreOurFeatures'
->>>>>>> 8089597 (Add Feature Slider and Explore Features Initial rendition -- still need to test)
-=======
-import CentoSpeechBubble from './components/SpeechBubble'
-import SpeechBubble from "./components/SpeechBubble"
->>>>>>> origin/dev
+import Homepage from './pages/Homepage'
+// import ExploreOurFeatures from './pages/ExploreOurFeatures'
 
 function App() {
   return (
-    <>
     <BrowserRouter>
-    <SpeechBubble />
-      <Header />
-<<<<<<< HEAD
       <Routes>
-        <Route path="/" element={<HomePageSkeleton />} />
-        <Route path="/home" element={<HomePageSkeleton />} />
-        {/* <Route path="/about" element={<OurMissionPage />} /> */}
-        <Route path="/pricing" element={<PricingPage />} />
-        <Route path="/join-waitlist" element={<PricingPage />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="/" element={<Homepage />} />
+        {/* <Route path="/" element={<Navigate to="/features" replace />} /> */}
+        {/* <Route path="/features" element={<ExploreOurFeatures />} /> */}
       </Routes>
-=======
-      {/* <HomepageSkeleton /> */}
-      <ExploreOurFeatures />
->>>>>>> 8089597 (Add Feature Slider and Explore Features Initial rendition -- still need to test)
-      <Footer />
     </BrowserRouter>
-    </>
   )
 }
 
