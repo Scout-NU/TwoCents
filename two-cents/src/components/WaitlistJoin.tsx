@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import PrimaryButton from "./buttons/PrimaryButton";
+import { useNavigate } from "react-router-dom";
+import JoinWaitlistSubmissionButton from "./buttons/JoinWaitlistSubmissionButton";
 
 
 interface WaitListJoinProps {
@@ -8,13 +9,14 @@ interface WaitListJoinProps {
 
 const WaitListJoin = ({ imageSrc }: WaitListJoinProps) => {
     const [, setIsSmallPhone] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         setIsSmallPhone(window.innerWidth < 376);
     }, []);
 
     return (
-        <div className="flex justify-center px-4 mb-8">
+        <div className="flex justify-center px-4 mb-[100px]">
             <div className="relative bg-white max-w-lg h-auto w-75 flex
              flex-col items-center justify-center mx-auto tracking-wide
              rounded-2xl border-2 border-[#52AEEF] shadow-[14px_14px_0px_#52AEEF]
@@ -27,20 +29,20 @@ const WaitListJoin = ({ imageSrc }: WaitListJoinProps) => {
                     />
                 )}
 
-                <p className="text-center! font-semibold! text-2xl! md:text-4xl! tracking-normal! leading-snug! pb-6! m-0!">
+                <p className="text-center! font-semibold! text-2xl! md:text-4xl! tracking-normal! leading-snug! pb-6! m-0! text-black!">
                     Start spending and <br />
                     saving with{" "}
                     <span className="text-[#52AEEF] font-normal" style={{ fontFamily: '"gooddog-new", sans-serif' }}>
                         confidence.
                     </span>
                 </p>
-                <PrimaryButton
-                    buttonColor="#F5A243"
-                    borderColor="#F5A243"
-                    textColor="#ffffff"
-                    buttonWidth="150px"
-                    buttonHeight="40px"
+                <JoinWaitlistSubmissionButton
+                    buttonColor="white"
+                    borderColor="#FA9E4D"
+                    textColor="#FA9E4D"
                     fontSize="20px"
+                    padding="10px 30px"
+                    onClick={() => navigate('/waitlist')}
                 />
             </div>
         </div>

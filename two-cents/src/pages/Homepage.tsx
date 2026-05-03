@@ -1,4 +1,7 @@
 import './Homepage.css';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import JoinWaitlistSubmissionButton from '../components/buttons/JoinWaitlistSubmissionButton';
@@ -6,6 +9,21 @@ import CentoSpeechBubble from '../components/SpeechBubble';
 import WaitListJoin from '../components/WaitlistJoin';
 
 function Homepage() {
+  const navigate = useNavigate();
+  const [browseHovered, setBrowseHovered] = useState(false);
+  const [browsePressed, setBrowsePressed] = useState(false);
+
+  const getBrowseBackground = () => {
+    if (browsePressed) return 'linear-gradient(0deg, rgba(249, 198, 105, 0.27) 0%, rgba(249, 198, 105, 0.27) 100%), #FFF';
+    if (browseHovered) return '#FFF';
+    return 'linear-gradient(0deg, #1F6A9D 0%, #1F6A9D 100%), #FFF';
+  };
+
+  const getBrowseColor = () => {
+    if (browseHovered) return '#1F6A9D';
+    return '#FFF';
+  };
+
   return (
     <>
       <Header />
@@ -18,9 +36,7 @@ function Homepage() {
               A <span className="strikethrough">
                 <span className="hero-eyebrow">financial health</span>
                 budgeting
-                <svg className="strikethrough-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 525 17" fill="none" preserveAspectRatio="none">
-                  <path d="M3.5 3.5C17.0883 3.52286 55.3167 11.0362 136.135 11.2004C216.953 11.3645 358.615 8.6048 434.494 11.7023C510.372 14.7998 516.371 11.0329 521.5 11.8486" style={{stroke: 'var(--Orange-Primary, #FA9E4D)', strokeWidth: '3px'}} strokeLinecap="round"/>
-                </svg>
+                <img src="/images/Vector 4.svg" className="strikethrough-svg" aria-hidden="true" />
               </span> app<br />that gets it.
             </h1>
           </div>
@@ -30,13 +46,13 @@ function Homepage() {
               <p className="hero-subtitle">
                 Spend and save with TwoCents, your allocation assistant.
               </p>
-              <JoinWaitlistSubmissionButton buttonColor="white" borderColor="#FA9E4D" textColor="#FA9E4D" />
+              <JoinWaitlistSubmissionButton buttonColor="white" borderColor="#FA9E4D" textColor="#FA9E4D" onClick={() => navigate('/waitlist')} />
             </div>
           </div>
         </section>
 
-        {/* Hill zone 1: Base Hill fills the zone, Layered Hill 1 anchored to the bottom as a lower wave */}
-        <div className="hills-zone">
+        {/* Hill zone 1: Base Hill fills the zone, Layered Hill 1 anchored as a lower wave */}
+        <div className="hills-zone hills-zone-cento">
           <img src="/images/Home Screen Base Hill.svg" alt="" aria-hidden="true" className="hill-upper" />
           <img src="/images/Home Screen Layered Hill 1.svg" alt="" aria-hidden="true" className="hill-lower" />
           <div className="hills-zone-fg">
@@ -47,9 +63,21 @@ function Homepage() {
         </div>
 
         <section id="two-cent-features">
-          <h2>We focus on financial health, not restrictions.</h2>
-          <p>Let's take a look at what TwoCents features.</p>
-          <button>Browse More</button>
+          <h2>We focus on financial health, <span className="features-line2">not restrictions.</span></h2>
+          <p className="features-subline">Let's take a look at what TwoCents features.</p>
+          <Link
+            to="/features"
+            className="features-browse-btn"
+            style={{
+              background: getBrowseBackground(),
+              color: getBrowseColor(),
+              transition: 'background 0.2s ease, color 0.2s ease',
+            }}
+            onMouseEnter={() => setBrowseHovered(true)}
+            onMouseLeave={() => { setBrowseHovered(false); setBrowsePressed(false); }}
+            onMouseDown={() => setBrowsePressed(true)}
+            onMouseUp={() => setBrowsePressed(false)}
+          >Browse More</Link>
 
           <div id="feature-cards">
             <img src="/images/feature 1.png" alt="Proactive spending feature" />
@@ -81,5 +109,4 @@ function Homepage() {
     </>
   );
 }
-
 export default Homepage;

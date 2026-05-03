@@ -79,7 +79,7 @@ function JoinWaitlist() {
 
                     {/* "Join Waitlist" button */}
                     <div className="flex justify-end">
-                        <JoinWaitlistSubmissionButton buttonColor={"orange"} borderColor={"orange"} textColor={"white"}/>
+                        <JoinWaitlistSubmissionButton buttonColor="white" borderColor="#FA9E4D" textColor="#FA9E4D" />
                     </div>
                 </div>
             </form>

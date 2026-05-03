@@ -4,9 +4,13 @@ type JoinWaitlistSubmissionButtonProps = {
     buttonColor: string;
     borderColor: string;
     textColor: string;
+    fontSize?: string;
+    padding?: string;
+    className?: string;
+    onClick?: () => void;
 };
 
-const JoinWaitlistSubmissionButton = ({ buttonColor, borderColor, textColor }: JoinWaitlistSubmissionButtonProps) => {
+const JoinWaitlistSubmissionButton = ({ buttonColor, borderColor, textColor, fontSize, padding, className, onClick }: JoinWaitlistSubmissionButtonProps) => {
     const [hovered, setHovered] = useState(false);
     const [pressed, setPressed] = useState(false);
 
@@ -19,10 +23,11 @@ const JoinWaitlistSubmissionButton = ({ buttonColor, borderColor, textColor }: J
     return (
         <button
             type="submit"
-            className="whitespace-nowrap font-semibold cursor-pointer"
-            style={{
+            onClick={onClick}
+                className={`whitespace-nowrap font-bold cursor-pointer${className ? ` ${className}` : ''}`}                                 style={{
                 display: 'inline-flex',
-                padding: '6px 16px',
+                padding: padding ?? '6px 16px',
+                ...(fontSize ? { fontSize } : {}),
                 alignItems: 'center',
                 flexShrink: 0,
                 borderRadius: '30px',

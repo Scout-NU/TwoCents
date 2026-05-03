@@ -12,7 +12,7 @@
 /* ── Hero ── */
 #hero {
   position: relative;
-  padding: 72px 100px 40px !important;
+  padding: 80px 100px 60px !important;
   overflow: hidden;
   font-family: 'Outfit', sans-serif;
   /* override index.css flex/min-height */
@@ -22,37 +22,36 @@
   background: white !important;
 }
 
+/* Pull the base hill up to sit just below the hero text — fixed so it never drifts into text */
+.hills-zone-cento {
+  margin-top: -120px;
+}
+
 .hero-eyebrow {
   position: absolute;
   bottom: 100%;
-  left: 0;
+  left: 50%;
+  transform: translateX(-58%) rotate(0.432deg);
   font-family: "gooddog-new", sans-serif !important;
-  font-size: clamp(42px, 6vw, 68px);
+  font-size: 4.5vw !important;
   font-style: normal;
   font-weight: 400;
-  line-height: 1;
-  color: var(--Orange-Primary, #FA9E4D);
+  line-height: normal;
+  color: var(--Orange-Primary, #FA9E4D) !important;
   white-space: nowrap;
-  transform: rotate(0.432deg);
   margin: 0;
 }
 
+
 .hero-title {
   font-family: 'Outfit', sans-serif !important;
-  font-size: 110px;
+  font-size: 7vw !important;
   font-style: normal !important;
   font-weight: 600 !important;
-  color: var(--Text-Primary, #000);
-  line-height: 145px;
-  margin: 0 0 32px;
+  color: var(--Text-Primary, #000) !important;
+  line-height: 1.2 !important;
+  margin: 0 0 32px !important;
   align-self: stretch;
-}
-
-@media (max-width: 1200px) {
-  .hero-title {
-    font-size: clamp(80px, 8vw, 110px);
-    line-height: 1.318;
-  }
 }
 
 .strikethrough {
@@ -68,9 +67,11 @@
 .strikethrough-svg {
   position: absolute;
   left: 0;
-  top: 48%;
+  top: 63%;
+  transform: translateY(-50%);
   width: 100%;
-  height: 17px;
+  height: auto;
+  display: block;
   pointer-events: none;
 }
 
@@ -82,13 +83,13 @@
 }
 
 .hero-subtitle {
-  font-family: 'Outfit', sans-serif;
-  font-size: clamp(20px, 3vw, 42px);
-  font-weight: 600;
-  color: #000;
-  line-height: normal;
-  max-width: 520px;
-  margin: 0 0 32px;
+  font-family: 'Outfit', sans-serif !important;
+  font-size: clamp(18px, 2.8vw, 42px) !important;
+  font-weight: 600 !important;
+  color: #000 !important;
+  line-height: normal !important;
+  max-width: min(892px, calc(100vw - 100px)) !important;
+  margin: 0 0 32px !important;
 }
 
 .hero-mascot {
@@ -161,45 +162,133 @@
 /* ── Cento Blurb ── */
 #cento-blurb {
   background-color: transparent;
+  padding-top: clamp(40px, 7vw, 120px);
+}
+
+/* Container height per breakpoint — keeps Cento snug under the speech bubble */
+.cento-section {
+  min-height: clamp(320px, 72vw, 560px);
+}
+
+/* Cento — mobile base (< 768px) */
+.cento-waving-img {
+  width: 82vw !important;
+  min-width: 340px !important;
+  max-width: none !important;
+  height: auto !important;
+  left: -20% !important;
+  bottom: -60px !important;
+}
+
+/* allow overflow so cento can bleed below section on all screen sizes */
+.hills-zone-cento {
+  overflow: visible !important;
+}
+
+/* Position hill-lower relative to zone top in vw units so it scales
+   proportionally with Cento and never shifts on resize */
+.hills-zone-cento .hill-lower {
+  bottom: auto;
+  top: 71vw;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hills-zone-cento .hill-lower {
+    top: 63vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hills-zone-cento .hill-lower {
+    top: 44vw;
+  }
+}
+
+/* Non-mobile (≥ 768px): anchor Cento top to exactly 8px below speech bubble bottom.
+   bubble top = 5% of container; bubble height = clamp(120px,19vw,280px) mirrors the
+   inline bubble style (width clamp(240px,38vw,560px), aspectRatio 2/1 → height = width/2) */
+@media (min-width: 768px) {
+  .cento-waving-img {
+    top: calc(5% + clamp(120px, 19vw, 280px) + 8px) !important;
+    bottom: auto !important;
+  }
+}
+
+/* iPad (768–1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .cento-section {
+    min-height: max(440px, 68vw);
+  }
+  .cento-waving-img {
+    width: 68vw !important;
+    left: -4% !important;
+  }
+}
+
+/* Desktop (≥ 1024px) */
+@media (min-width: 1024px) {
+  .cento-section {
+    min-height: max(540px, 65vw);
+  }
+  .cento-waving-img {
+    width: 50vw !important;
+    max-width: none !important;
+    left: 22% !important;
+  }
 }
 
 /* ── Features ── */
 #two-cent-features {
   padding: 80px 100px;
-  text-align: center;
+  text-align: left;
   font-family: 'Outfit', sans-serif;
 }
 
 #two-cent-features h2 {
-  font-size: clamp(28px, 4vw, 52px);
-  font-weight: 700;
-  color: #000;
-  margin: 0 0 16px;
+  font-family: 'Outfit', sans-serif !important;
+  font-size: clamp(38px, 5.5vw, 88px) !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  color: var(--Text-Primary, #000) !important;
+  line-height: 1.2 !important;
+  margin: 0 0 32px !important;
+  word-spacing: 0.1em;
+  white-space: nowrap;
 }
 
-#two-cent-features > p {
-  font-size: clamp(16px, 2vw, 24px);
-  color: #3d3d3d;
-  margin: 0 0 32px;
+.features-line2 {
+  display: block;
 }
 
-#two-cent-features button {
-  background-color: #FA9E4D;
+.features-subline {
+  font-family: 'Outfit', sans-serif !important;
+  font-size: clamp(18px, 2.8vw, 42px) !important;
+  font-weight: 600 !important;
+  color: #000 !important;
+  line-height: normal !important;
+  margin: 0 0 32px !important;
+}
+
+.features-browse-btn {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 17px 44px;
+  gap: 11px;
+  border-radius: 34px;
+  border: 1px solid #114A70;
+  background: #1F6A9D;
   color: #fff;
   font-family: 'Outfit', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  border: none;
-  border-radius: 999px;
-  padding: 12px 32px;
+  font-size: clamp(20px, 2.2vw, 32px);
+  font-weight: 800;
+  text-decoration: none;
   cursor: pointer;
   margin-bottom: 48px;
-  transition: background-color 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
-#two-cent-features button:hover {
-  background-color: #e8893a;
-}
 
 #feature-cards {
   display: flex;
@@ -369,9 +458,19 @@
   color: #FA9E4D;
 }
 
+/* Reserve right side for speech bubble — text fills left 75% */
+@media (min-width: 1025px) {
+  #hero {
+    padding-right: 400px !important;
+  }
+}
+
 /* ── Responsive ── */
 @media (max-width: 1024px) {
-  #hero,
+  #hero {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
   #cento-blurb,
   #two-cent-features,
   #testiomonials,
@@ -380,10 +479,22 @@
     padding-left: 40px;
     padding-right: 40px;
   }
+  .features-browse-btn {
+    height: 32px;
+    padding: 9px 20px;
+    gap: 6px;
+    border-radius: 18px;
+    border: 0.5px solid #114A70;
+    background: linear-gradient(0deg, #1F6A9D 0%, #1F6A9D 100%), #FFF;
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 768px) {
-  #hero,
+  #hero {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
   #cento-blurb,
   #two-cent-features,
   #testiomonials,
@@ -421,6 +532,40 @@
 @media (max-width: 640px) {
   #hero {
     padding-top: 48px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
     padding-bottom: 32px !important;
+  }
+
+  .hero-title {
+    font-size: clamp(38px, 10.5vw, 56px) !important;
+  }
+
+  #two-cent-features h2 {
+    font-size: clamp(28px, 7.5vw, 48px) !important;
+    white-space: normal;
+  }
+
+  .features-line2 {
+    display: inline;
+  }
+
+  .hero-eyebrow {
+    font-size: 6.5vw !important;
+  }
+
+  .hero-subtitle,
+  .features-subline {
+    max-width: 100% !important;
+    font-size: clamp(18px, 4.5vw, 28px) !important;
+  }
+  .features-browse-btn {
+    height: 30px;
+    padding: 9px 20px;
+    gap: 5px;
+    border-radius: 16px;
+    border: 0.375px solid #114A70;
+    background: linear-gradient(0deg, #1F6A9D 0%, #1F6A9D 100%), #FFF;
+    font-size: 13px;
   }
 }
