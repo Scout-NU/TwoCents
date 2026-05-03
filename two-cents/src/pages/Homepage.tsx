@@ -3,6 +3,7 @@ import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import JoinWaitlistSubmissionButton from '../components/buttons/JoinWaitlistSubmissionButton';
 import CentoSpeechBubble from '../components/SpeechBubble';
+import WaitListJoin from '../components/WaitlistJoin';
 
 function Homepage() {
   return (
@@ -72,10 +73,7 @@ function Homepage() {
           </div>
         </div>
 
-        <section id="join-waitlist">
-          <h2>Start spending and saving with confidence.</h2>
-          <JoinWaitlistSubmissionButton buttonColor="#FA9E4D" borderColor="#FA9E4D" textColor="white" />
-        </section>
+        <WaitListJoin />
 
       </main>
 
