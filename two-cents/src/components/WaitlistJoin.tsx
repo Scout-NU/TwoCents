@@ -16,7 +16,7 @@ const WaitListJoin = ({ imageSrc }: WaitListJoinProps) => {
     }, []);
 
     return (
-        <div className="flex justify-center px-4 mb-[100px]">
+        <div className="flex justify-center px-4 mt-[50px] md:mt-[80px] mb-[50px] md:mb-[100px]">
             <div className="relative bg-white max-w-lg h-auto w-75 flex
              flex-col items-center justify-center mx-auto tracking-wide
              rounded-2xl border-2 border-[#52AEEF] shadow-[14px_14px_0px_#52AEEF]

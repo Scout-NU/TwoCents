@@ -2,8 +2,6 @@ import './Homepage.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import Header from '../components/layout/Header';
-import Footer from '../components/layout/Footer';
 import JoinWaitlistSubmissionButton from '../components/buttons/JoinWaitlistSubmissionButton';
 import CentoSpeechBubble from '../components/SpeechBubble';
 import WaitListJoin from '../components/WaitlistJoin';
@@ -26,8 +24,6 @@ function Homepage() {
 
   return (
     <>
-      <Header />
-
       <main>
 
         <section id="hero">
@@ -44,7 +40,7 @@ function Homepage() {
           <div className="hero-subtitle-row">
             <div>
               <p className="hero-subtitle">
-                Spend and save with TwoCents, your allocation assistant.
+                Spend and save with TwoCents, your allocation<br className="hero-subtitle-break" /> assistant.
               </p>
               <JoinWaitlistSubmissionButton buttonColor="white" borderColor="#FA9E4D" textColor="#FA9E4D" onClick={() => navigate('/waitlist')} className="hero-waitlist-btn" />
             </div>
@@ -109,8 +105,6 @@ function Homepage() {
         <WaitListJoin />
 
       </main>
-
-      <Footer />
     </>
   );
 }

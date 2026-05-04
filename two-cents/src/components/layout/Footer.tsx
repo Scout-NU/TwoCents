@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './Footer.css';
 import JoinWaitlistSubmissionButton from '../buttons/JoinWaitlistSubmissionButton';
 
@@ -11,12 +11,12 @@ function Footer() {
         {/* Left side - Navigation Links */}
         <nav className="footer-nav">
           <div className="footer-nav-column">
-            <a href="#home" className="footer-link">Home</a>
-            <a href="#features" className="footer-link">Features</a>
+            <Link to="/" className="footer-link">Home</Link>
+            <Link to="/features" className="footer-link">Features</Link>
           </div>
           <div className="footer-nav-column">
-            <a href="#mission" className="footer-link">Our Mission</a>
-            <a href="#pricing" className="footer-link">Pricing</a>
+            <Link to="/mission" className="footer-link">Our Mission</Link>
+            <Link to="/pricing" className="footer-link">Pricing</Link>
           </div>
         </nav>
 
@@ -33,8 +33,6 @@ function Footer() {
               buttonColor="white"
               borderColor="#FA9E4D"
               textColor="#FA9E4D"
-              fontSize="15px"
-              padding="10px 28px"
               onClick={() => navigate('/waitlist')}
             />
           </div>

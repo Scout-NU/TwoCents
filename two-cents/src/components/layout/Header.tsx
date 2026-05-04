@@ -1,6 +1,7 @@
 import {useLocation} from "react-router-dom";
 import { useState } from "react";
 import JoinWaitlistSubmissionButton from "../buttons/JoinWaitlistSubmissionButton";
+import './Header.css';
 
 
 const Header = () => {
@@ -14,7 +15,7 @@ const Header = () => {
 
     return (
         
-        <header className="relative flex justify-between items-center gap-2 w-full  bg-white px-7 py-6 z-40 md:z-60">
+        <header className="header-root relative flex justify-between items-center gap-2 w-full bg-white px-7 py-6 z-40 md:z-60">
             <div>
             <img 
             src="/media/Logo.svg"
@@ -24,12 +25,12 @@ const Header = () => {
             
             {/* Desktop NavBar */}
             <nav className="items-center font-semibold hidden md:flex" >
-            <div className="flex gap-10 items-center">
+            <div className="header-nav flex gap-10 items-center">
                 {navLinks.map(({label, href}) => (
                     <a
-                        key={label} 
-                        href={href} 
-                        className={location.pathname === href ? "underline decoration-[0.75px] underline-offset-2" : ""}
+                        key={label}
+                        href={href}
+                        className={`header-nav-link ${location.pathname === href ? "underline decoration-[0.75px] underline-offset-2" : ""}`}
                         >
                         {label}
                     </a>

@@ -24,7 +24,7 @@ const JoinWaitlistSubmissionButton = ({ buttonColor, borderColor, textColor, fon
         <button
             type="submit"
             onClick={onClick}
-                className={`whitespace-nowrap font-bold cursor-pointer${className ? ` ${className}` : ''}`}                                 style={{
+                className={`whitespace-nowrap font-semibold cursor-pointer${className ? ` ${className}` : ''}`}                                 style={{
                 display: 'inline-flex',
                 padding: padding ?? '6px 16px',
                 ...(fontSize ? { fontSize } : {}),

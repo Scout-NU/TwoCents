@@ -1,0 +1,45 @@
+@media (min-width: 1025px) {
+  .header-nav {
+    gap: 100px;
+  }
+
+  .header-nav-link {
+    color: #000;
+    font-family: 'Outfit', sans-serif;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .header-root {
+    padding-top: 26px;
+    padding-bottom: 26px;
+    padding-right: 31px;
+  }
+
+  .header-nav {
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header-nav-link {
+    display: flex;
+    width: 75px;
+    height: 33px;
+    padding-right: 2px;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+}

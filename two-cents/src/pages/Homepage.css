@@ -86,9 +86,19 @@
   z-index: 1;
 }
 
+.hero-subtitle-break {
+  display: none;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-subtitle-break {
+    display: inline;
+  }
+}
+
 .hero-subtitle {
   font-family: 'Outfit', sans-serif !important;
-  font-size: clamp(18px, 2.8vw, 42px) !important;
+  font-size: clamp(24px, 3.5vw, 54px) !important;
   font-weight: 600 !important;
   color: #000 !important;
   line-height: normal !important;
@@ -275,7 +285,7 @@
   font-family: 'Outfit', sans-serif !important;
   font-size: clamp(38px, 5.5vw, 88px) !important;
   font-style: normal !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
   color: var(--Text-Primary, #000) !important;
   line-height: 1.2 !important;
   margin: 0 0 32px !important;
@@ -289,7 +299,7 @@
 
 .features-subline {
   font-family: 'Outfit', sans-serif !important;
-  font-size: clamp(18px, 2.8vw, 42px) !important;
+  font-size: clamp(24px, 3.5vw, 54px) !important;
   font-weight: 600 !important;
   color: #000 !important;
   line-height: normal !important;
@@ -309,7 +319,7 @@
   color: #fff;
   font-family: 'Outfit', sans-serif;
   font-size: clamp(20px, 2.2vw, 32px);
-  font-weight: 800;
+  font-weight: 600;
   text-decoration: none;
   cursor: pointer;
   margin-bottom: 48px;
@@ -322,6 +332,8 @@
   justify-content: center;
   gap: 24px;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 }
 
 #feature-cards img {
@@ -330,6 +342,7 @@
   max-width: 325px;
   width: 100%;
   height: auto;
+  background: white;
 }
 
 /* ── Testimonials ── */
@@ -344,7 +357,7 @@
   z-index: 3;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .cento-pointing-img {
     display: none;
   }
@@ -377,6 +390,82 @@
   font-size: clamp(16px, 2vw, 24px);
   color: #3d3d3d;
   margin: 0 0 40px;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  #testiomonials {
+    display: grid;
+    grid-template-columns: 1fr 50vw;
+    grid-template-areas:
+      "title title"
+      "subtitle subtitle"
+      "cento ratings";
+    row-gap: 30px;
+    text-align: left;
+  }
+
+  .testimonials-heading {
+    display: contents;
+  }
+
+  .testimonials-heading h2 {
+    grid-area: title;
+    margin-bottom: 0;
+  }
+
+  .testimonials-line1 {
+    font-size: clamp(42px, 6.5vw, 96px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .testimonials-line2 {
+    font-size: clamp(42px, 6.5vw, 96px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .testimonials-heading > p {
+    grid-area: subtitle;
+    font-size: clamp(24px, 3.5vw, 54px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    color: #000;
+    margin: 0;
+  }
+
+  .hills-zone-reviews {
+    overflow: visible;
+  }
+
+  .cento-pointing-img {
+    grid-area: cento;
+    display: block;
+    width: 130%;
+    max-width: unset;
+    height: auto;
+    aspect-ratio: unset;
+    object-fit: unset;
+    margin-top: -30px;
+    margin-left: auto;
+    margin-right: 0;
+    transform: scaleX(-1) translateX(40px);
+  }
+
+  #user-testiomonials {
+    grid-area: ratings;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 20px;
+  }
+
+  #user-testiomonials img:first-child {
+    width: 110%;
+    max-width: 110%;
+  }
 }
 
 @media (min-width: 1025px) {
@@ -465,7 +554,7 @@
   font-weight: 600;
   border: none;
   border-radius: 999px;
-  padding: 14px 48px;
+  padding: 14px 90px;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.15s ease;
 }
@@ -479,13 +568,18 @@
 
 /* Reserve right side for speech bubble — text fills left 75% */
 @media (min-width: 1025px) {
-  #hero {
-    padding-right: 400px !important;
+  .features-browse-btn,
+  .hero-waitlist-btn {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 26px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: normal !important;
+    padding: 15px 16px !important;
   }
 
-  .hero-waitlist-btn {
-    font-size: 22px !important;
-    padding: 14px 36px !important;
+  #hero {
+    padding-right: 400px !important;
   }
 
   .hills-zone-reviews {
@@ -514,13 +608,9 @@
     padding-right: 40px;
   }
   .features-browse-btn {
-    height: 32px;
-    padding: 9px 20px;
-    gap: 6px;
-    border-radius: 18px;
-    border: 0.5px solid #114A70;
-    background: linear-gradient(0deg, #1F6A9D 0%, #1F6A9D 100%), #FFF;
-    font-size: 14px;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 16px;
   }
 }
 
@@ -554,6 +644,78 @@
 
 }
 
+@media (max-width: 768px) {
+  .footer {
+    padding: 42px 35px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 24px;
+  }
+
+  .footer-nav {
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  .footer-nav-column {
+    display: flex;
+  }
+
+  .footer-right {
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .footer-cta-stack {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .footer-mascot {
+    position: relative;
+    z-index: 1;
+    margin-bottom: -6px;
+    align-self: flex-end;
+    margin-right: 4px;
+    width: auto;
+    height: auto;
+  }
+
+  .footer-mascot img {
+    width: 65px;
+  }
+
+  .social-links {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials-heading {
+    text-align: left;
+    padding-left: 12px;
+  }
+
+  .testimonials-line1,
+  .testimonials-line2 {
+    font-size: clamp(36px, 9vw, 52px);
+  }
+
+  .testimonials-heading > p {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(24px, 3.5vw, 54px);
+    font-style: normal;
+    font-weight: 600;
+    color: #000;
+    line-height: normal;
+    margin: 0 0 32px;
+  }
+}
 
 @media (max-width: 640px) {
   #hero {
@@ -586,13 +748,9 @@
     font-size: clamp(18px, 4.5vw, 28px) !important;
   }
   .features-browse-btn {
-    height: 30px;
-    padding: 9px 20px;
-    gap: 5px;
-    border-radius: 16px;
-    border: 0.375px solid #114A70;
-    background: linear-gradient(0deg, #1F6A9D 0%, #1F6A9D 100%), #FFF;
-    font-size: 13px;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 16px;
   }
 
   #two-cent-features {

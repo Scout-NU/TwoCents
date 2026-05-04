@@ -2,7 +2,7 @@ import WaitListJoin from "../components/WaitlistJoin";
 
 const OurMission = () => {
     return (
-        <div className="relative min-h-screen">
+        <div className="relative min-h-screen pb-[24px] md:pb-0">
 
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <img src="/media/Layered-Hill-2.svg" className="absolute top-[48%] md:top-[49%] left-0 w-full z-10" />
