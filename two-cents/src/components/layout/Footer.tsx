@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import './Footer.css';
 import JoinWaitlistSubmissionButton from '../buttons/JoinWaitlistSubmissionButton';
 
 function Footer() {
