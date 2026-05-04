@@ -46,7 +46,7 @@ function Homepage() {
               <p className="hero-subtitle">
                 Spend and save with TwoCents, your allocation assistant.
               </p>
-              <JoinWaitlistSubmissionButton buttonColor="white" borderColor="#FA9E4D" textColor="#FA9E4D" onClick={() => navigate('/waitlist')} />
+              <JoinWaitlistSubmissionButton buttonColor="white" borderColor="#FA9E4D" textColor="#FA9E4D" onClick={() => navigate('/waitlist')} className="hero-waitlist-btn" />
             </div>
           </div>
         </section>
@@ -91,11 +91,16 @@ function Homepage() {
           <img src="/images/Home Screen Layerd Hill 2 (bottom).svg" alt="" aria-hidden="true" className="hill-upper" />
           <div className="hills-zone-fg">
             <section id="testiomonials">
-              <h2>Don't just take our two cents!</h2>
-              <p>Hear what users have to say!</p>
+              <div className="testimonials-heading">
+                <h2>
+                  <span className="testimonials-line1">Don't just take our</span>
+                  <span className="testimonials-line2">two cents!</span>
+                </h2>
+                <p>Hear what users have to say!</p>
+                <img src="/images/cento-pointing.png" alt="Cento pointing" className="cento-pointing-img" />
+              </div>
               <div id="user-testiomonials">
                 <img src="/images/Testimonials.png" alt="User testimonials" />
-                <img src="/images/cento-pointing.png" alt="Cento pointing" width="300" />
               </div>
             </section>
           </div>

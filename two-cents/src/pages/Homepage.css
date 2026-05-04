@@ -12,7 +12,7 @@
 /* ── Hero ── */
 #hero {
   position: relative;
-  padding: 80px 100px 60px !important;
+  padding: 100px 100px 60px !important;
   overflow: hidden;
   font-family: 'Outfit', sans-serif;
   /* override index.css flex/min-height */
@@ -25,6 +25,8 @@
 /* Pull the base hill up to sit just below the hero text — fixed so it never drifts into text */
 .hills-zone-cento {
   margin-top: -120px;
+  padding-bottom: 0 !important;
+  pointer-events: none;
 }
 
 .hero-eyebrow {
@@ -80,6 +82,8 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 40px;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-subtitle {
@@ -129,7 +133,8 @@
 }
 
 .hills-zone-reviews {
-  padding-bottom: 0;
+  padding-bottom: 0 !important;
+  margin-top: -200px;
 }
 
 /* Base Hill: fills the full zone from the top */
@@ -170,14 +175,14 @@
   min-height: clamp(320px, 72vw, 560px);
 }
 
-/* Cento — mobile base (< 768px) */
+/* Cento — mobile base (< 480px) */
 .cento-waving-img {
-  width: 82vw !important;
+  width: 120vw !important;
   min-width: 340px !important;
   max-width: none !important;
   height: auto !important;
   left: -20% !important;
-  bottom: -60px !important;
+  bottom: -90px !important;
 }
 
 /* allow overflow so cento can bleed below section on all screen sizes */
@@ -189,18 +194,36 @@
    proportionally with Cento and never shifts on resize */
 .hills-zone-cento .hill-lower {
   bottom: auto;
-  top: 71vw;
+  top: 52vw;
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .hills-zone-cento .hill-lower {
-    top: 63vw;
+    top: 45vw;
   }
 }
 
 @media (min-width: 1024px) {
   .hills-zone-cento .hill-lower {
-    top: 44vw;
+    top: 30vw;
+  }
+}
+
+/* Large phone bridge (480–767px): step values halfway between mobile and iPad */
+@media (min-width: 480px) and (max-width: 767px) {
+  .cento-section {
+    min-height: max(380px, 70vw);
+  }
+  .cento-waving-img {
+    width: 85vw !important;
+    left: -10% !important;
+    bottom: -110px !important;
+  }
+  .hills-zone-cento .hill-lower {
+    top: 49vw;
+  }
+  .speech-bubble-pos {
+    top: 14% !important;
   }
 }
 
@@ -214,31 +237,35 @@
   }
 }
 
-/* iPad (768–1023px) */
-@media (min-width: 768px) and (max-width: 1023px) {
+/* iPad (768–1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
   .cento-section {
-    min-height: max(440px, 68vw);
+    min-height: max(650px, 68vw) !important;
   }
   .cento-waving-img {
-    width: 68vw !important;
-    left: -4% !important;
+    width: 76vw !important;
+    left: -8% !important;
+    top: calc(5% + clamp(120px, 19vw, 280px) + 60px) !important;
   }
 }
 
 /* Desktop (≥ 1024px) */
 @media (min-width: 1024px) {
   .cento-section {
-    min-height: max(540px, 65vw);
+    min-height: max(600px, 63vw);
   }
   .cento-waving-img {
-    width: 50vw !important;
+    width: 62vw !important;
     max-width: none !important;
-    left: 22% !important;
+    left: 4% !important;
+    bottom: -130px !important;
   }
 }
 
 /* ── Features ── */
 #two-cent-features {
+  position: relative;
+  z-index: 2;
   padding: 80px 100px;
   text-align: left;
   font-family: 'Outfit', sans-serif;
@@ -306,24 +333,101 @@
 }
 
 /* ── Testimonials ── */
+.cento-pointing-img {
+  display: block;
+  width: 85%;
+  height: auto;
+  aspect-ratio: 43 / 38;
+  object-fit: contain;
+  margin-top: -100px;
+  position: relative;
+  z-index: 3;
+}
+
+@media (max-width: 1024px) {
+  .cento-pointing-img {
+    display: none;
+  }
+}
+
 #testiomonials {
-  padding: 80px 100px;
+  padding: 200px 100px 0;
   text-align: center;
   background-color: transparent;
   font-family: 'Outfit', sans-serif;
 }
 
 #testiomonials h2 {
-  font-size: clamp(28px, 4vw, 52px);
   font-weight: 700;
   color: #000;
   margin: 0 0 12px;
+}
+
+.testimonials-line1 {
+  display: block;
+  font-size: clamp(28px, 4vw, 52px);
+}
+
+.testimonials-line2 {
+  display: block;
+  font-size: clamp(28px, 4vw, 52px);
 }
 
 #testiomonials > p {
   font-size: clamp(16px, 2vw, 24px);
   color: #3d3d3d;
   margin: 0 0 40px;
+}
+
+@media (min-width: 1025px) {
+  #testiomonials {
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 76px;
+  }
+
+  #user-testiomonials {
+    order: -1;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex: 0 0 42%;
+    max-width: 42%;
+  }
+
+  #user-testiomonials img:first-child {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .testimonials-heading {
+    text-align: left;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .testimonials-heading h2 {
+    margin-bottom: 8px;
+  }
+
+  .testimonials-line1 {
+    font-size: clamp(38px, 5.5vw, 88px);
+    font-weight: 600;
+  }
+
+  .testimonials-line2 {
+    font-size: clamp(38px, 5.5vw, 88px);
+    font-weight: 600;
+  }
+
+  .testimonials-heading > p {
+    font-size: 42px;
+    font-weight: 600;
+    color: #000;
+    margin: 0 0 40px;
+  }
 }
 
 #user-testiomonials {
@@ -373,10 +477,12 @@
 
 /* ── Footer ── */
 .footer {
-  background-color: #fff;
-  border-top: 1px solid #e8e8e8;
-  padding: 48px 100px;
+  background: #1F6A9D;
+  border-top: none;
+  padding: 120px 100px;
   font-family: 'Outfit', sans-serif;
+  position: relative;
+  z-index: 10;
 }
 
 .footer-content {
@@ -400,7 +506,7 @@
 .footer-link {
   font-size: 16px;
   font-weight: 500;
-  color: #3d3d3d;
+  color: white;
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -418,8 +524,17 @@
 
 .footer-cta-stack {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 0;
+}
+
+.footer-mascot {
+  position: relative;
+  z-index: 1;
+  margin-bottom: -14px;
+  align-self: flex-start;
+  margin-left: 10px;
 }
 
 .footer-mascot img {
@@ -450,7 +565,7 @@
 }
 
 .social-icon {
-  color: #3d3d3d;
+  color: white;
   transition: color 0.2s;
 }
 
@@ -463,6 +578,22 @@
   #hero {
     padding-right: 400px !important;
   }
+
+  .hero-waitlist-btn {
+    font-size: 22px !important;
+    padding: 14px 36px !important;
+  }
+
+  .hills-zone-reviews {
+    overflow: visible;
+  }
+
+  .hills-zone-reviews .hill-upper {
+    top: clamp(160px, 14vw, 220px);
+    height: auto;
+    object-fit: initial;
+    object-position: initial;
+  }
 }
 
 /* ── Responsive ── */
@@ -474,8 +605,7 @@
   #cento-blurb,
   #two-cent-features,
   #testiomonials,
-  #join-waitlist,
-  .footer {
+  #join-waitlist {
     padding-left: 40px;
     padding-right: 40px;
   }
@@ -490,6 +620,58 @@
   }
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+  .footer {
+    padding: 120px 100px;
+  }
+
+  .footer-content {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .footer-nav {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .footer-nav-column {
+    display: contents;
+  }
+
+  .footer-link {
+    font-size: 20px;
+  }
+
+  .footer-right {
+    align-items: flex-end;
+    gap: 16px;
+  }
+
+  .footer-cta-stack {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .footer-mascot {
+    align-self: flex-start;
+    margin-left: 8px;
+    margin-right: 0;
+    margin-bottom: -12px;
+  }
+
+  .footer-mascot img {
+    width: 70px;
+  }
+
+  .social-links {
+    gap: 16px;
+  }
+}
+
 @media (max-width: 768px) {
   #hero {
     padding-left: 24px !important;
@@ -498,8 +680,7 @@
   #cento-blurb,
   #two-cent-features,
   #testiomonials,
-  #join-waitlist,
-  .footer {
+  #join-waitlist {
     padding-left: 24px;
     padding-right: 24px;
   }
@@ -518,14 +699,56 @@
     text-align: center;
   }
 
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 42px 35px;
+  }
+
   .footer-content {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
+    gap: 24px;
+  }
+
+  .footer-nav {
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  .footer-nav-column {
+    display: flex;
   }
 
   .footer-right {
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .footer-cta-stack {
+    flex-direction: column;
     align-items: center;
+    gap: 0;
+  }
+
+  .footer-mascot {
+    position: relative;
+    z-index: 1;
+    margin-bottom: -6px;
+    align-self: flex-end;
+    margin-right: 4px;
+    width: auto;
+    height: auto;
+  }
+
+  .footer-mascot img {
+    width: 65px;
+  }
+
+  .social-links {
+    gap: 12px;
   }
 }
 
@@ -567,5 +790,24 @@
     border: 0.375px solid #114A70;
     background: linear-gradient(0deg, #1F6A9D 0%, #1F6A9D 100%), #FFF;
     font-size: 13px;
+  }
+
+  #two-cent-features {
+    margin-top: 80px;
+  }
+
+  .speech-bubble-pos {
+    top: 22% !important;
+  }
+
+  .speech-bubble-bg {
+    left: 3px !important;
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .polygon-shadow {
+    left: calc(22% + 10px) !important;
   }
 }
