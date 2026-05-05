@@ -1,6 +1,7 @@
 import JoinWaitlistSubmissionButton from "../components/buttons/JoinWaitlistSubmissionButton";
 import { useState } from "react";
 import { supabase } from "../lib/supabase";
+import './JoinWaitlist.css';
 
 function JoinWaitlist() {
     const[submitted, setSubmitted] = useState(false);
@@ -33,30 +34,24 @@ function JoinWaitlist() {
     return (
         <div className="relative">
 
-            { /*Title */}
-            <div className="mt-20">
-                <h1 className="font-black text-black"> Join the community! </h1>
-            </div>
-
-            { /*Sub-heading */}
-            <div className="mt-10">
-                <p className="font-bold text-2xl text-black">
-                    Start spending and saving with <span style={{fontStyle: 'italic'}}>confidence</span>.
+            {/* Heading */}
+            <div className="joinwaitlist-hero">
+                <h1 className="joinwaitlist-title">Join the community!</h1>
+                <p className="joinwaitlist-subtitle">
+                    Start spending and saving with{" "}
+                    <span className="joinwaitlist-confidence">confidence.</span>
                 </p>
             </div>
-
-            {/* Cento Mascot
-            <div className="flex justify-center">
-                <img src="/images/cento-holding.png" alt="Cento Holding"
-                    className=""/>
-            </div> */}
 
             {/* Mascot + Card container */}
             <div className="relative flex justify-center items-end mt-15 mb-20">
 
-            {/* Cento Mascot */}
+            {/* Form Card + Cento wrapper */}
+            <div className="relative">
+
+            {/* Cento Mascot — absolutely positioned relative to the form wrapper */}
             <img src="/images/cento-holding.png" alt="Cento Holding"
-                className="absolute -left-15 md:left-[11%] lg:left-[7%] bottom-0 w-95 md:w-110 lg:w-125 z-10"/>
+                className="hidden md:block absolute md:right-[calc(100%-335px)] lg:right-[calc(100%-410px)] md:-bottom-16 md:w-[620px] lg:w-[760px] max-w-none z-[60]"/>
 
             {/* Form Card */}
             <form onSubmit={handleSubmit} className="relative z-50">
@@ -83,6 +78,7 @@ function JoinWaitlist() {
                     </div>
                 </div>
             </form>
+            </div> {/* end form+cento wrapper */}
             </div>
 
             {/* Hill Background */}
