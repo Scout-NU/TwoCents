@@ -1,16 +1,22 @@
+import { useNavigate, Link } from 'react-router-dom';
+import './Footer.css';
+import JoinWaitlistSubmissionButton from '../buttons/JoinWaitlistSubmissionButton';
+
 function Footer() {
+  const navigate = useNavigate();
+
   return (
     <footer className="footer">
       <div className="footer-content">
         {/* Left side - Navigation Links */}
         <nav className="footer-nav">
           <div className="footer-nav-column">
-            <a href="#home" className="footer-link">Home</a>
-            <a href="#features" className="footer-link">Features</a>
+            <Link to="/" className="footer-link">Home</Link>
+            <Link to="/features" className="footer-link">Features</Link>
           </div>
           <div className="footer-nav-column">
-            <a href="#mission" className="footer-link">Our Mission</a>
-            <a href="#pricing" className="footer-link">Pricing</a>
+            <Link to="/mission" className="footer-link">Our Mission</Link>
+            <Link to="/pricing" className="footer-link">Pricing</Link>
           </div>
         </nav>
 
@@ -23,9 +29,12 @@ function Footer() {
             </div>
 
             {/* Join Waitlist Button */}
-            <button className="join-waitlist-btn">
-              Join Waitlist
-            </button>
+            <JoinWaitlistSubmissionButton
+              buttonColor="white"
+              borderColor="#FA9E4D"
+              textColor="#FA9E4D"
+              onClick={() => navigate('/waitlist')}
+            />
           </div>
 
           {/* Social Media Icons */}

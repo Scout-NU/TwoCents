@@ -1,60 +1,90 @@
 const CentoSpeechBubble = () => {
   return (
-    <div className="flex h-80 px-8  flex-row items-end lg:gap-8 gap-2">
-      {/* Cento */}
-      <img
-        src="/images/Cento_wave.svg"
-        className="w-40 sm:w-40 md:w-70 h-auto shrink-0"
-        alt="Cento mascot waving"
-      />
+    <div className="cento-section relative w-full">
 
-      {/* Speech bubble wrapper */}
-      <div className="relative -translate-y-30 md:-translate-y-40 lg:-translate-y-50">
-        {/* Bubble */}
-        <div className="shadow-[15px_15px_0px_#ABD8F6] rounded-4xl bg-white   max-w-[300px]">
-          <p className="text-lg md:text-md leading-snug text-center p-3">
-            Hi I'm
-            <span
-              className="text-[#52AEEF]"
-              style={{ fontFamily: '"gooddog-new", sans-serif' }}
-            >
-              {" "}
-              Cento!
-            </span>
-            <br />
-            Together we can spend and save with
-            <span
-              className="text-[#52AEEF]"
-              style={{ fontFamily: '"gooddog-new", sans-serif' }}
-            >
-              {" "}
-              confidence.
-            </span>
-          </p>
+      {/* Speech bubble — upper right, 100px from screen edge */}
+      <div
+        className="speech-bubble-pos"
+        style={{
+          position: 'absolute',
+          top: '5%',
+          right: 'min(100px, 7vw)',
+          width: 'clamp(280px, 50vw, 780px)',
+          overflow: 'visible',
+        }}
+      >
+        <div style={{ position: 'relative' }}>
+
+          {/* Blue offset background layer — sits 8px right + down of bubble */}
+          <img
+            src="/images/SpeechBubbleBackground.png"
+            aria-hidden="true"
+            className="speech-bubble-bg"
+            style={{
+              position: 'absolute',
+              top: '3px',
+              left: '8px',
+              width: '100%',
+              height: 'auto',
+              display: 'block',
+            }}
+          />
+
+          {/* White bubble with text (Figma export) */}
+          <img
+            src="/images/SpeechBubble.png"
+            alt="Hi im cento! Together we can spend and save with confidence."
+            style={{
+              position: 'relative',
+              width: '100%',
+              height: 'auto',
+              display: 'block',
+              zIndex: 1,
+            }}
+          />
+
+          {/* Polygon blue shadow — behind everything */}
+          <img
+            src="/images/Polygon 2.svg"
+            aria-hidden="true"
+            className="polygon-shadow"
+            style={{
+              position: 'absolute',
+              top: 'calc(100% - 7px)',
+              left: 'calc(22% + 5px)',
+              width: 'clamp(24px, 4vw, 64px)',
+              zIndex: 0,
+            }}
+          />
+
+          {/* Polygon white tail — on top of bubble */}
+          <img
+            src="/images/Polygon 1.svg"
+            aria-hidden="true"
+            style={{
+              position: 'absolute',
+              top: 'calc(100% - 8px)',
+              left: '22%',
+              width: 'clamp(24px, 4vw, 64px)',
+              zIndex: 2,
+            }}
+          />
+
         </div>
-
-        {/* Blue polygon */}
-        <img
-          src="/media/Polygon-2.svg"
-          className="
-            absolute w-6 sm:w-8 md:w-10
-            bottom-[-19%] left-[18%]
-            sm:bottom-[-18%] sm:left-[20%]
-            md:bottom-[-48%] md:left-[20%]
-          "
-        />
-
-        {/* White polygon */}
-        <img
-          src="/media/Polygon-1.svg"
-          className="
-            absolute w-5 sm:w-7 md:w-9
-            bottom-[-13%] left-[20%]
-            sm:bottom-[-13%] sm:left-[22%]
-            md:bottom-[-33%] md:left-[20%]
-          "
-        />
       </div>
+
+      {/* Cento — lower left */}
+      <img
+        src="/images/cento-waving.png"
+        alt="Cento mascot waving"
+        className="cento-waving-img"
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          height: 'auto',
+          maxWidth: 'none',
+        }}
+      />
     </div>
   );
 };

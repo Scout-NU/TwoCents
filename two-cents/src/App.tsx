@@ -1,44 +1,24 @@
-
-import './App.css'
-import Footer from './components/layout/Footer'
-import Header from './components/layout/Header'
-<<<<<<< HEAD
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import HomepageSkeleton from './HomepageSkeleton'
-import JoinWaitlist from './components/layout/JoinWaitlist'
-<<<<<<< HEAD
-=======
-import { BrowserRouter } from 'react-router-dom'
-// import HomepageSkeleton from './pages/HomepageSkeleton'
+import Layout from './components/layout/Layout'
+import Homepage from './pages/Homepage'
 import ExploreOurFeatures from './pages/ExploreOurFeatures'
->>>>>>> 8089597 (Add Feature Slider and Explore Features Initial rendition -- still need to test)
-=======
-import CentoSpeechBubble from './components/SpeechBubble'
-import SpeechBubble from "./components/SpeechBubble"
->>>>>>> origin/dev
+import OurMission from './pages/OurMission'
+import Pricing from './pages/Pricing'
+import JoinWaitlist from './pages/JoinWaitlist'
 
 function App() {
   return (
-    <>
     <BrowserRouter>
-    <SpeechBubble />
-      <Header />
-<<<<<<< HEAD
       <Routes>
-        <Route path="/" element={<HomePageSkeleton />} />
-        <Route path="/home" element={<HomePageSkeleton />} />
-        {/* <Route path="/about" element={<OurMissionPage />} /> */}
-        <Route path="/pricing" element={<PricingPage />} />
-        <Route path="/join-waitlist" element={<PricingPage />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/features" element={<ExploreOurFeatures />} />
+          <Route path="/mission" element={<OurMission />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/waitlist" element={<JoinWaitlist />} />
+        </Route>
       </Routes>
-=======
-      {/* <HomepageSkeleton /> */}
-      <ExploreOurFeatures />
->>>>>>> 8089597 (Add Feature Slider and Explore Features Initial rendition -- still need to test)
-      <Footer />
     </BrowserRouter>
-    </>
   )
 }
 

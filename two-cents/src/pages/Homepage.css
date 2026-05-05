@@ -1,0 +1,774 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+@import url("https://use.typekit.net/rcj0voz.css");
+
+:root {
+  --Orange-Primary: #FA9E4D;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ── Hero ── */
+#hero {
+  position: relative;
+  padding: 100px 100px 60px !important;
+  overflow: hidden;
+  font-family: 'Outfit', sans-serif;
+  /* override index.css flex/min-height */
+  display: block !important;
+  min-height: unset !important;
+  justify-content: unset !important;
+  background: white !important;
+}
+
+/* Pull the base hill up to sit just below the hero text — fixed so it never drifts into text */
+.hills-zone-cento {
+  margin-top: -120px;
+  padding-bottom: 0 !important;
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-58%) rotate(0.432deg);
+  font-family: "gooddog-new", sans-serif !important;
+  font-size: 4.5vw !important;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--Orange-Primary, #FA9E4D) !important;
+  white-space: nowrap;
+  margin: 0;
+}
+
+
+.hero-title {
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 7vw !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  color: var(--Text-Primary, #000) !important;
+  line-height: 1.2 !important;
+  margin: 0 0 32px !important;
+  align-self: stretch;
+}
+
+.strikethrough {
+  position: relative;
+  display: inline-block;
+  text-decoration: none !important;
+}
+
+.strikethrough::after {
+  display: none !important;
+}
+
+.strikethrough-svg {
+  position: absolute;
+  left: 0;
+  top: 63%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+}
+
+.hero-subtitle-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-subtitle-break {
+  display: none;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-subtitle-break {
+    display: inline;
+  }
+}
+
+.hero-subtitle {
+  font-family: 'Outfit', sans-serif !important;
+  font-size: clamp(24px, 3.5vw, 54px) !important;
+  font-weight: 600 !important;
+  color: #000 !important;
+  line-height: normal !important;
+  max-width: min(892px, calc(100vw - 100px)) !important;
+  margin: 0 0 32px !important;
+}
+
+.hero-mascot {
+  width: clamp(160px, 20vw, 280px);
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-bottom: 0;
+}
+
+.hero-cta-button {
+  display: inline-block;
+  background-color: transparent;
+  color: #000;
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  border: 1.5px solid #000;
+  border-radius: 999px;
+  padding: 10px 28px;
+  cursor: pointer;
+  margin-bottom: 60px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.hero-cta-button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* ── Hill Zones ── */
+.hills-zone {
+  position: relative;
+  overflow: hidden;
+  /* extra bottom padding makes room for the lower hill wave */
+  padding-bottom: clamp(180px, 24vw, 360px);
+}
+
+.hills-zone-reviews {
+  padding-bottom: 0 !important;
+  margin-top: -200px;
+}
+
+/* Base Hill: fills the full zone from the top */
+.hill-upper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  pointer-events: none;
+}
+
+/* Layered Hill 1: anchored to the bottom so its wave appears lower than the first hill */
+.hill-lower {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+/* Content sits above both hill layers */
+.hills-zone-fg {
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Cento Blurb ── */
+#cento-blurb {
+  background-color: transparent;
+  padding-top: clamp(40px, 7vw, 120px);
+}
+
+/* Container height per breakpoint — keeps Cento snug under the speech bubble */
+.cento-section {
+  min-height: clamp(320px, 72vw, 560px);
+}
+
+/* Cento — mobile base (< 480px) */
+.cento-waving-img {
+  width: 120vw !important;
+  min-width: 340px !important;
+  max-width: none !important;
+  height: auto !important;
+  left: -20% !important;
+  bottom: -90px !important;
+}
+
+/* allow overflow so cento can bleed below section on all screen sizes */
+.hills-zone-cento {
+  overflow: visible !important;
+}
+
+/* Position hill-lower relative to zone top in vw units so it scales
+   proportionally with Cento and never shifts on resize */
+.hills-zone-cento .hill-lower {
+  bottom: auto;
+  top: 52vw;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hills-zone-cento .hill-lower {
+    top: 45vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hills-zone-cento .hill-lower {
+    top: 30vw;
+  }
+}
+
+/* Large phone bridge (480–767px): step values halfway between mobile and iPad */
+@media (min-width: 480px) and (max-width: 767px) {
+  .cento-section {
+    min-height: max(380px, 70vw);
+  }
+  .cento-waving-img {
+    width: 85vw !important;
+    left: -10% !important;
+    bottom: -110px !important;
+  }
+  .hills-zone-cento .hill-lower {
+    top: 49vw;
+  }
+  .speech-bubble-pos {
+    top: 14% !important;
+  }
+}
+
+/* Non-mobile (≥ 768px): anchor Cento top to exactly 8px below speech bubble bottom.
+   bubble top = 5% of container; bubble height = clamp(120px,19vw,280px) mirrors the
+   inline bubble style (width clamp(240px,38vw,560px), aspectRatio 2/1 → height = width/2) */
+@media (min-width: 768px) {
+  .cento-waving-img {
+    top: calc(5% + clamp(120px, 19vw, 280px) + 8px) !important;
+    bottom: auto !important;
+  }
+}
+
+/* iPad (768–1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .cento-section {
+    min-height: max(650px, 68vw) !important;
+  }
+  .cento-waving-img {
+    width: 76vw !important;
+    left: -8% !important;
+    top: calc(5% + clamp(120px, 19vw, 280px) + 60px) !important;
+  }
+}
+
+/* Desktop (≥ 1024px) */
+@media (min-width: 1024px) {
+  .cento-section {
+    min-height: max(600px, 63vw);
+  }
+  .cento-waving-img {
+    width: 62vw !important;
+    max-width: none !important;
+    left: 4% !important;
+    bottom: -130px !important;
+  }
+}
+
+/* ── Features ── */
+#two-cent-features {
+  position: relative;
+  z-index: 2;
+  padding: 80px 100px;
+  text-align: left;
+  font-family: 'Outfit', sans-serif;
+}
+
+#two-cent-features h2 {
+  font-family: 'Outfit', sans-serif !important;
+  font-size: clamp(38px, 5.5vw, 88px) !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  color: var(--Text-Primary, #000) !important;
+  line-height: 1.2 !important;
+  margin: 0 0 32px !important;
+  word-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.features-line2 {
+  display: block;
+}
+
+.features-subline {
+  font-family: 'Outfit', sans-serif !important;
+  font-size: clamp(24px, 3.5vw, 54px) !important;
+  font-weight: 600 !important;
+  color: #000 !important;
+  line-height: normal !important;
+  margin: 0 0 32px !important;
+}
+
+.features-browse-btn {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 17px 44px;
+  gap: 11px;
+  border-radius: 34px;
+  border: 1px solid #114A70;
+  background: #1F6A9D;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(20px, 2.2vw, 32px);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  margin-bottom: 48px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+
+#feature-cards {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+#feature-cards img {
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  max-width: 325px;
+  width: 100%;
+  height: auto;
+  background: white;
+}
+
+/* ── Testimonials ── */
+.cento-pointing-img {
+  display: block;
+  width: 85%;
+  height: auto;
+  aspect-ratio: 43 / 38;
+  object-fit: contain;
+  margin-top: -100px;
+  position: relative;
+  z-index: 3;
+}
+
+@media (max-width: 768px) {
+  .cento-pointing-img {
+    display: none;
+  }
+}
+
+#testiomonials {
+  padding: 200px 100px 0;
+  text-align: center;
+  background-color: transparent;
+  font-family: 'Outfit', sans-serif;
+}
+
+#testiomonials h2 {
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 12px;
+}
+
+.testimonials-line1 {
+  display: block;
+  font-size: clamp(28px, 4vw, 52px);
+}
+
+.testimonials-line2 {
+  display: block;
+  font-size: clamp(28px, 4vw, 52px);
+}
+
+#testiomonials > p {
+  font-size: clamp(16px, 2vw, 24px);
+  color: #3d3d3d;
+  margin: 0 0 40px;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  #testiomonials {
+    display: grid;
+    grid-template-columns: 1fr 50vw;
+    grid-template-areas:
+      "title title"
+      "subtitle subtitle"
+      "cento ratings";
+    row-gap: 30px;
+    text-align: left;
+  }
+
+  .testimonials-heading {
+    display: contents;
+  }
+
+  .testimonials-heading h2 {
+    grid-area: title;
+    margin-bottom: 0;
+  }
+
+  .testimonials-line1 {
+    font-size: clamp(42px, 6.5vw, 96px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .testimonials-line2 {
+    font-size: clamp(42px, 6.5vw, 96px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .testimonials-heading > p {
+    grid-area: subtitle;
+    font-size: clamp(24px, 3.5vw, 54px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    color: #000;
+    margin: 0;
+  }
+
+  .hills-zone-reviews {
+    overflow: visible;
+  }
+
+  .cento-pointing-img {
+    grid-area: cento;
+    display: block;
+    width: 130%;
+    max-width: unset;
+    height: auto;
+    aspect-ratio: unset;
+    object-fit: unset;
+    margin-top: -30px;
+    margin-left: auto;
+    margin-right: 0;
+    transform: scaleX(-1) translateX(40px);
+  }
+
+  #user-testiomonials {
+    grid-area: ratings;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 20px;
+  }
+
+  #user-testiomonials img:first-child {
+    width: 110%;
+    max-width: 110%;
+  }
+}
+
+@media (min-width: 1025px) {
+  #testiomonials {
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 76px;
+  }
+
+  #user-testiomonials {
+    order: -1;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex: 0 0 42%;
+    max-width: 42%;
+  }
+
+  #user-testiomonials img:first-child {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .testimonials-heading {
+    text-align: left;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .testimonials-heading h2 {
+    margin-bottom: 8px;
+  }
+
+  .testimonials-line1 {
+    font-size: clamp(38px, 5.5vw, 88px);
+    font-weight: 600;
+  }
+
+  .testimonials-line2 {
+    font-size: clamp(38px, 5.5vw, 88px);
+    font-weight: 600;
+  }
+
+  .testimonials-heading > p {
+    font-size: 42px;
+    font-weight: 600;
+    color: #000;
+    margin: 0 0 40px;
+  }
+}
+
+#user-testiomonials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+#user-testiomonials img {
+  height: auto;
+  max-width: 100%;
+}
+
+/* ── Join Waitlist ── */
+#join-waitlist {
+  padding: 80px 100px;
+  text-align: center;
+  font-family: 'Outfit', sans-serif;
+}
+
+#join-waitlist h2 {
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 32px;
+}
+
+#join-waitlist button {
+  background-color: #FA9E4D;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 90px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+#join-waitlist button:hover {
+  background-color: #e8893a;
+  transform: translateY(-2px);
+}
+
+/* ── Footer ── */
+
+/* Reserve right side for speech bubble — text fills left 75% */
+@media (min-width: 1025px) {
+  .features-browse-btn,
+  .hero-waitlist-btn {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 26px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: normal !important;
+    padding: 15px 16px !important;
+  }
+
+  #hero {
+    padding-right: 400px !important;
+  }
+
+  .hills-zone-reviews {
+    overflow: visible;
+  }
+
+  .hills-zone-reviews .hill-upper {
+    top: clamp(160px, 14vw, 220px);
+    height: auto;
+    object-fit: initial;
+    object-position: initial;
+  }
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  #hero {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+  #cento-blurb,
+  #two-cent-features,
+  #testiomonials,
+  #join-waitlist {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .features-browse-btn {
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 16px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  #hero {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+  #cento-blurb,
+  #two-cent-features,
+  #testiomonials,
+  #join-waitlist {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .hero-subtitle-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-mascot {
+    align-self: center;
+  }
+
+  #cento-blurb {
+    flex-direction: column;
+    text-align: center;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 42px 35px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 24px;
+  }
+
+  .footer-nav {
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  .footer-nav-column {
+    display: flex;
+  }
+
+  .footer-right {
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .footer-cta-stack {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .footer-mascot {
+    position: relative;
+    z-index: 1;
+    margin-bottom: -6px;
+    align-self: flex-end;
+    margin-right: 4px;
+    width: auto;
+    height: auto;
+  }
+
+  .footer-mascot img {
+    width: 65px;
+  }
+
+  .social-links {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials-heading {
+    text-align: left;
+    padding-left: 12px;
+  }
+
+  .testimonials-line1,
+  .testimonials-line2 {
+    font-size: clamp(36px, 9vw, 52px);
+  }
+
+  .testimonials-heading > p {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(24px, 3.5vw, 54px);
+    font-style: normal;
+    font-weight: 600;
+    color: #000;
+    line-height: normal;
+    margin: 0 0 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  #hero {
+    padding-top: 48px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-bottom: 32px !important;
+  }
+
+  .hero-title {
+    font-size: clamp(38px, 10.5vw, 56px) !important;
+  }
+
+  #two-cent-features h2 {
+    font-size: clamp(28px, 7.5vw, 48px) !important;
+    white-space: normal;
+  }
+
+  .features-line2 {
+    display: inline;
+  }
+
+  .hero-eyebrow {
+    font-size: 6.5vw !important;
+  }
+
+  .hero-subtitle,
+  .features-subline {
+    max-width: 100% !important;
+    font-size: clamp(18px, 4.5vw, 28px) !important;
+  }
+  .features-browse-btn {
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 16px;
+  }
+
+  #two-cent-features {
+    margin-top: 80px;
+  }
+
+  .speech-bubble-pos {
+    top: 22% !important;
+  }
+
+  .speech-bubble-bg {
+    left: 3px !important;
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .polygon-shadow {
+    left: calc(22% + 10px) !important;
+  }
+}

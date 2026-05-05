@@ -1,4 +1,4 @@
-import Waitlist from '../components/layout/Waitlist';
+import WaitListJoin from '../components/WaitlistJoin';
 
 function Pricing() {
   const plans = [
@@ -81,7 +81,7 @@ function Pricing() {
       {/* Mascot + CTA Section */}
       <section className="cta-with-mascot">
         <img src="/images/Cento_walk.svg" alt="TwoCents Mascot" className="pricing-mascot" />
-        <Waitlist />
+        <WaitListJoin />
       </section>
     </div>
   );
