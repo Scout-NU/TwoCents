@@ -490,8 +490,8 @@ body {
 
   .pricing-mascot {
     left: clamp(1%, 3vw, 5%);
-    top: clamp(-12rem, -18vw, -15rem);
-    width: clamp(260px, 32vw, 420px);
+    top: clamp(-15rem, -21vw, -18rem);
+    width: clamp(320px, 40vw, 520px);
   }
 }
 
@@ -499,6 +499,16 @@ body {
   .pricing-page {
     background-position: center calc(100% + 80px);
   }
+
+  .cta-with-mascot {
+    display: block;
+  }
+
+  .pricing-mascot {
+    width: clamp(360px, 38vw, 560px);
+    top: clamp(-17rem, -22vw, -20rem);
+  }
+
 }
 
 @media (max-width: 767px) {
@@ -510,12 +520,13 @@ body {
 
   .pricing-options-shell {
     border-radius: 20px;
-    padding: 0.9rem;
+    padding: 2rem 0.9rem;
   }
 
   .pricing-cards-container {
     grid-template-columns: 1fr;
     max-width: 380px;
+    margin: 0 auto;
   }
 
   .pricing-card {

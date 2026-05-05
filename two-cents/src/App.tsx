@@ -4,7 +4,7 @@ import Homepage from './pages/Homepage'
 import ExploreOurFeatures from './pages/ExploreOurFeatures'
 import OurMission from './pages/OurMission'
 import Pricing from './pages/Pricing'
-import JoinWaitlist from './components/layout/JoinWaitlist'
+import JoinWaitlist from './pages/JoinWaitlist'
 
 function App() {
   return (

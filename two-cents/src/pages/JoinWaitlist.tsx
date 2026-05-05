@@ -1,6 +1,6 @@
-import JoinWaitlistSubmissionButton from "../buttons/JoinWaitlistSubmissionButton";
+import JoinWaitlistSubmissionButton from "../components/buttons/JoinWaitlistSubmissionButton";
 import { useState } from "react";
-import { supabase } from "../../lib/supabase";
+import { supabase } from "../lib/supabase";
 
 function JoinWaitlist() {
     const[submitted, setSubmitted] = useState(false);
@@ -10,7 +10,7 @@ function JoinWaitlist() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
+
         const { error } = await supabase
             .from("waitlist")
             .insert([
@@ -29,22 +29,22 @@ function JoinWaitlist() {
                 setEmail("");
             }
     };
-    
+
     return (
         <div className="relative">
 
-            { /*Title */} 
+            { /*Title */}
             <div className="mt-20">
                 <h1 className="font-black text-black"> Join the community! </h1>
             </div>
-    
-            { /*Sub-heading */} 
+
+            { /*Sub-heading */}
             <div className="mt-10">
                 <p className="font-bold text-2xl text-black">
                     Start spending and saving with <span style={{fontStyle: 'italic'}}>confidence</span>.
                 </p>
             </div>
-    
+
             {/* Cento Mascot
             <div className="flex justify-center">
                 <img src="/images/cento-holding.png" alt="Cento Holding"
@@ -53,7 +53,7 @@ function JoinWaitlist() {
 
             {/* Mascot + Card container */}
             <div className="relative flex justify-center items-end mt-15 mb-20">
-            
+
             {/* Cento Mascot */}
             <img src="/images/cento-holding.png" alt="Cento Holding"
                 className="absolute -left-15 md:left-[11%] lg:left-[7%] bottom-0 w-95 md:w-110 lg:w-125 z-10"/>
@@ -63,17 +63,17 @@ function JoinWaitlist() {
                 <div className="bg-white rounded-3xl shadow-lg p-12 w-100 relative z-50 text-left">
                     <div className="mb-6">
                     <label className="font-bold text-black block mb-2 text-lg">First Name</label>
-                    <input className="w-full border border-gray-200 rounded-full px-4 py-2 bg-gray-50 text-sm" placeholder="Your first name" 
+                    <input className="w-full border border-gray-200 rounded-full px-4 py-2 bg-gray-50 text-sm" placeholder="Your first name"
                         value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
                     </div>
                     <div className="mb-6">
                     <label className="font-bold text-black block mb-2 text-lg">Last Name</label>
-                    <input className="w-full border border-gray-200 rounded-full px-4 py-2 bg-gray-50 text-sm" placeholder="Your last name" 
+                    <input className="w-full border border-gray-200 rounded-full px-4 py-2 bg-gray-50 text-sm" placeholder="Your last name"
                         value={lastName} onChange={(e) => setLastName(e.target.value)} />
                     </div>
                     <div className="mb-8">
                     <label className="font-bold text-black block mb-2 text-lg">Email</label>
-                    <input className="mb-3 w-full border border-gray-200 rounded-full px-4 py-2 bg-gray-50 text-sm" placeholder="Your email" 
+                    <input className="mb-3 w-full border border-gray-200 rounded-full px-4 py-2 bg-gray-50 text-sm" placeholder="Your email"
                         value={email} onChange={(e) => setEmail(e.target.value)} />
                     </div>
 
@@ -84,7 +84,7 @@ function JoinWaitlist() {
                 </div>
             </form>
             </div>
-    
+
             {/* Hill Background */}
             <div className="full-width -mt-10 overflow-hidden h-[95vh] absolute top-57 left-0 w-full -z-10">
                 <img src="/images/Home Screen Layered Hill 1.svg" alt="Hill Background"
