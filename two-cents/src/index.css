@@ -264,11 +264,11 @@ code {
   }
 }
 
-@keyframes scrollCarousel {
+/* @keyframes scrollCarousel {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50.5%); }
 }
 
 .animate-scrollCarousel {
   animation: scrollCarousel 4s linear infinite;
-}
+} */
