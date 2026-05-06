@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/set-state-in-effect */
+
 import { useEffect, useState } from "react";
 import { Button } from "./buttons/PrimaryButton";
 
@@ -8,7 +9,8 @@ interface WaitListJoinProps {
 }
 
 const WaitListJoin = ({ imageSrc }: WaitListJoinProps) => {
-    const [, setIsSmallPhone] = useState(false);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [isSmallPhone, setIsSmallPhone] = useState(false);
 
     useEffect(() => {
         setIsSmallPhone(window.innerWidth < 376);

@@ -192,7 +192,7 @@
 
 /* Container height per breakpoint — keeps Cento snug under the speech bubble */
 .cento-section {
-  min-height: clamp(320px, 72vw, 560px);
+  min-height: clamp(320px, 72vw, 500px);
 }
 
 /* Cento — mobile base (< 480px) */
@@ -272,12 +272,12 @@
 /* Desktop (≥ 1024px) */
 @media (min-width: 1024px) {
   .cento-section {
-    min-height: max(600px, 63vw);
+    min-height: max(400px, 50vw);
   }
   .cento-waving-img {
-    width: 62vw !important;
+    width: 30vw !important;
     max-width: none !important;
-    left: 4% !important;
+    left: 25% !important;
     bottom: -130px !important;
   }
 }
@@ -286,7 +286,7 @@
 #two-cent-features {
   position: relative;
   z-index: 2;
-  padding: 80px 0;
+  padding-bottom: 80px;
   text-align: left;
   font-family: 'Outfit', sans-serif;
 }
@@ -482,11 +482,11 @@
     transform: scaleX(-1) translateX(40px);
   }
 
-  #user-testiomonials {
-    grid-area: ratings;
-    justify-content: flex-start;
-    align-items: flex-start;
+  .user-testiomonials {
+    display: flex;
+    flex-direction: column;
     margin-top: 20px;
+    gap: 10px;
   }
 
   #user-testiomonials img:first-child {
@@ -550,7 +550,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 

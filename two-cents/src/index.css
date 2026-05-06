@@ -4,18 +4,22 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  overflow-x: hidden;
 }
 
 body {
   font-family: 'Outfit', sans-serif;
   background: #ffffff;
+    overflow-x: clip;
+
 }
 
 #root {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  min-height: 100vh;        
+  display: flex;            
+  flex-direction: column;  
 }
 
 .full-width {
@@ -23,6 +27,39 @@ body {
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
 }
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for children in a group */
+.fade-up.delay-1 { transition-delay: 0.1s; }
+.fade-up.delay-2 { transition-delay: 0.2s; }
+.fade-up.delay-3 { transition-delay: 0.3s; }
+.fade-up.delay-4 { transition-delay: 0.4s; }
+
+.bounce-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.bounce-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bounce-up.delay-1 { transition-delay: 0.1s; }
+.bounce-up.delay-2 { transition-delay: 0.2s; }
+.bounce-up.delay-3 { transition-delay: 0.3s; }
+.bounce-up.delay-4 { transition-delay: 0.4s; }
 
 /* rating styling */
 .react-simple-star-rating svg {
@@ -184,13 +221,13 @@ body {
   margin-right: calc(50% - 50vw);
   box-sizing: border-box;
   background-color: #ffffff;
-  background-image: url('/images/Our-Plan-Hill.svg');
   background-size: 100% auto;
   background-position: center bottom;
   background-repeat: no-repeat;
   padding-bottom: 0;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .pricing-header {
@@ -202,7 +239,7 @@ body {
   font-size: clamp(3rem, 7vw, 5rem);
   font-weight: 800;
   color: #1a1a1a;
-  margin-bottom: clamp(2rem, 4vw, 3rem);
+  margin-bottom: clamp(2rem, 4vw, 0rem);
   margin-top: 0;
 }
 
@@ -219,6 +256,12 @@ body {
 
 .pricing-options-section {
   padding: clamp(2rem, 4.5vw, 3.5rem) clamp(1rem, 3vw, 2rem) clamp(2rem, 5vw, 4rem);
+}
+.pricing-header,
+.pricing-options-section,
+.cta-with-mascot {
+  position: relative;
+  z-index: 1;
 }
 
 .pricing-options-shell {
@@ -369,7 +412,7 @@ body {
   position: absolute;
   left: clamp(1%, 3vw, 5%);
   top: clamp(-12rem, -18vw, -15rem);
-  width: clamp(260px, 32vw, 420px);
+  width: clamp(260px, 32vw, 300px);
   height: auto;
   z-index: 10;
 }
@@ -483,7 +526,6 @@ body {
   }
 
   .pricing-page {
-    background-image: url('/images/OurPlanHill.png');
     background-size: 100% 100%;
     background-position: top center;
   }
@@ -505,7 +547,7 @@ body {
   }
 
   .pricing-mascot {
-    width: clamp(360px, 38vw, 560px);
+    width: clamp(360px, 38vw, 450px);
     top: clamp(-17rem, -22vw, -20rem);
   }
 
@@ -513,7 +555,6 @@ body {
 
 @media (max-width: 767px) {
   .pricing-page {
-    background-image: url('/images/OurPlanHill.png');
     background-size: 100% auto;
     background-position: center top;
   }

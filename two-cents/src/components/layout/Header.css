@@ -14,7 +14,7 @@
 
 .header-dropdown-menu {
   position: absolute;
-  top: 45px;
+  top: calc(100% + 0px); 
   left: 50%;
   transform: translateX(-30%);
   background: white;
@@ -31,10 +31,6 @@
   transition: opacity 0.18s ease;
 }
 
-.header-dropdown-trigger:hover .header-dropdown-menu {
-  opacity: 1;
-  pointer-events: all;
-}
 
 .header-dropdown-about-label {
   color: #000;

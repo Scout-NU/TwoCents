@@ -8,7 +8,12 @@ interface Slide {
   imageAlt: string;
   imageSrc?: string;
   placeholderSrc?: string;
+
+
 }
+
+
+
 
 const slides: Slide[] = [
   {
@@ -50,12 +55,18 @@ const slides: Slide[] = [
 ];
 
 export default function FeatureSlider() {
+
+
+
+
   const [current, setCurrent] = useState(0);
+const [hoveredArrow, setHoveredArrow] = useState<"prev" | "next" | null>(null);
 
-  const goTo = (index: number) => setCurrent(index);
-
+const goTo = (index: number) => setCurrent(index);
+const prev = () => setCurrent((c) => (c - 1 + slides.length) % slides.length);
+const next = () => setCurrent((c) => (c + 1) % slides.length);
   const slide = slides[current];
-
+  
   return (
     <section className="feature-slider-section">
       <div className="feature-slider-card">
@@ -85,15 +96,47 @@ export default function FeatureSlider() {
         </div>
 
         <div className="feature-slider-dots">
-          {slides.map((_, i) => (
-            <button
-              key={i}
-              className={`feature-slider-dot${i === current ? " active" : ""}`}
-              onClick={() => goTo(i)}
-              aria-label={`Go to slide ${i + 1}`}
-            />
-          ))}
-        </div>
+  <button
+    className="feature-slider-arrow"
+    onClick={prev}
+    onMouseEnter={() => setHoveredArrow("prev")}
+    onMouseLeave={() => setHoveredArrow(null)}
+    aria-label="Previous slide"
+    style={{
+      background: hoveredArrow === "prev" ? "#0C5483" : "#FFF",
+      border: "1px solid #D9D9D9",
+    }}
+  >
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <path d="M15 18l-6-6 6-6" stroke={hoveredArrow === "prev" ? "#FFF" : "#0C5483"} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  </button>
+
+  {slides.map((_, i) => (
+    <button
+      key={i}
+      className={`feature-slider-dot${i === current ? " active" : ""}`}
+      onClick={() => goTo(i)}
+      aria-label={`Go to slide ${i + 1}`}
+    />
+  ))}
+
+  <button
+    className="feature-slider-arrow"
+    onClick={next}
+    onMouseEnter={() => setHoveredArrow("next")}
+    onMouseLeave={() => setHoveredArrow(null)}
+    aria-label="Next slide"
+    style={{
+      background: hoveredArrow === "next" ? "#0C5483" : "#FFF",
+      border: "1px solid #D9D9D9",
+    }}
+  >
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <path d="M9 18l6-6-6-6" stroke={hoveredArrow === "next" ? "#FFF" : "#0C5483"} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  </button>
+</div>
       </div>
     </section>
   );

@@ -1,3 +1,4 @@
+import { FadeUp } from '../components/layout/FadeUp';
 import WaitListJoin from '../components/WaitlistJoin';
 
 function Pricing() {
@@ -45,15 +46,21 @@ function Pricing() {
 
   return (
     <div className="pricing-page">
+      
       {/* Pricing Header */}
-      <section className="pricing-header">
+      
+      <FadeUp>
+        <section className="pricing-header">
         <h1 className="pricing-main-title">Our Plan</h1>
-        <h2 className="pricing-subtitle">Get started with TwoCents!</h2>
+        <h2 className="pricing-subtitle">We're launching soon, don't miss out!</h2>
         <div className="pricing-underline"></div>
       </section>
+      </FadeUp>
+      
 
       {/* Pricing Options Container */}
       <section className="pricing-options-section">
+        <FadeUp delay={1}>
         <div className="pricing-options-shell">
           <div className="pricing-cards-container">
             {plans.map((plan, index) => (
@@ -76,13 +83,19 @@ function Pricing() {
             ))}
           </div>
         </div>
+        </FadeUp>
       </section>
 
       {/* Mascot + CTA Section */}
       <section className="cta-with-mascot">
+        <FadeUp delay={2}>
         <img src="/images/Cento_walk.svg" alt="TwoCents Mascot" className="pricing-mascot" />
         <WaitListJoin />
+        </FadeUp>
       </section>
+      <img src="/images/OurPlanHill.png" alt="" aria-hidden="true" className="w-full h-full z-0 top-[310px] object-top object-cover absolute overflow-hidden" />
+
+
     </div>
   );
 }

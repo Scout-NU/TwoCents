@@ -2,6 +2,7 @@ import { useState } from "react";
 import { supabase } from "../lib/supabase";
 import './JoinWaitlist.css';
 import { Button } from "../components/buttons/PrimaryButton";
+import { FadeUp } from "../components/layout/FadeUp";
 
 function JoinWaitlist() {
     const[submitted, setSubmitted] = useState(false);
@@ -35,6 +36,7 @@ function JoinWaitlist() {
         <div className="relative">
 
             {/* Heading */}
+            <FadeUp>
             <div className="joinwaitlist-hero">
                 <h1 className="joinwaitlist-title">Join the community!</h1>
                 <p className="joinwaitlist-subtitle">
@@ -42,9 +44,10 @@ function JoinWaitlist() {
                     <span className="joinwaitlist-confidence">confidence.</span>
                 </p>
             </div>
+            </FadeUp>
 
-            {/* Mascot + Card container */}
-            <div className="relative flex justify-center items-end mt-15 mb-20">
+            <FadeUp>
+              <div className="relative flex justify-center items-end mt-15 mb-20">
 
             {/* Form Card + Cento wrapper */}
             <div className="relative">
@@ -79,7 +82,10 @@ function JoinWaitlist() {
                 </div>
             </form>
             </div> {/* end form+cento wrapper */}
-            </div>
+            </div>  
+            </FadeUp>
+            {/* Mascot + Card container */}
+            
 
             {/* Hill Background */}
             <div className="full-width -mt-10 overflow-hidden h-[95vh] absolute top-57 left-0 w-full -z-10">

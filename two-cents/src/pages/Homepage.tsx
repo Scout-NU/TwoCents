@@ -3,6 +3,8 @@ import CentoSpeechBubble from '../components/SpeechBubble';
 import WaitListJoin from '../components/WaitlistJoin';
 import { Button } from '../components/buttons/PrimaryButton';
 import { FeatureCardScroller } from '../components/ui/FeatureCardScroller';
+import { QuoteCard } from '../components/ui/QuoteCard';
+import { FadeUp } from '../components/layout/FadeUp';
 
 function Homepage() {
 
@@ -60,7 +62,8 @@ function Homepage() {
     <>
       <main>
 
-        <section id="hero">
+        <FadeUp>
+          <section id="hero">
           <div>
             <h1 className="hero-title">
               A <span className="strikethrough">
@@ -82,6 +85,8 @@ function Homepage() {
             </div>
           </div>
         </section>
+        </FadeUp>
+        
 
         {/* Hill zone 1: Base Hill fills the zone, Layered Hill 1 anchored as a lower wave */}
         <div className="hills-zone hills-zone-cento">
@@ -93,6 +98,8 @@ function Homepage() {
             </section>
           </div>
         </div>
+
+        <FadeUp>
 
         <section id="two-cent-features">
           <div className="features-heading">
@@ -112,11 +119,13 @@ function Homepage() {
 
 
         </section>
+        </FadeUp>
 
         {/* Hill zone 2: Layered Hill 2 as background for testimonials */}
         <div className="hills-zone hills-zone-reviews">
           <img src="/images/Home Screen Layerd Hill 2 (bottom).svg" alt="" aria-hidden="true" className="hill-upper" />
           <div className="hills-zone-fg">
+            <FadeUp>
             <section id="testiomonials">
               <div className="testimonials-heading">
                 <h2>
@@ -127,13 +136,19 @@ function Homepage() {
                 <img src="/images/cento-pointing.png" alt="Cento pointing" className="cento-pointing-img" />
               </div>
               <div id="user-testiomonials">
-                <img src="/images/Testimonials.png" alt="User testimonials" />
+                <FadeUp variant="bounce" delay={1}><QuoteCard name="@anna_budgets" quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sodales maximus nunc in ultricies." stars={5} /> </FadeUp>
+                <FadeUp variant="bounce" delay={2}><QuoteCard name="@Hank" quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sodales maximus nunc in ultricies." stars={5} /> </FadeUp>
+                <FadeUp variant="bounce" delay={3}><QuoteCard name="@james_budgets" quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sodales maximus nunc in ultricies." stars={5} /> </FadeUp>
+
               </div>
             </section>
+            </FadeUp>
           </div>
         </div>
 
-        <WaitListJoin />
+        <FadeUp>
+          <WaitListJoin />
+        </FadeUp>
 
       </main>
     </>
