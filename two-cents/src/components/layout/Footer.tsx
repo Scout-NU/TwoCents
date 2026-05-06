@@ -1,9 +1,8 @@
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Footer.css';
-import JoinWaitlistSubmissionButton from '../buttons/JoinWaitlistSubmissionButton';
+import { Button } from '../buttons/PrimaryButton';
 
 function Footer() {
-  const navigate = useNavigate();
 
   return (
     <footer className="footer">
@@ -28,13 +27,10 @@ function Footer() {
               <img src="/images/Cento_walk.svg" alt="TwoCents Mascot" />
             </div>
 
-            {/* Join Waitlist Button */}
-            <JoinWaitlistSubmissionButton
-              buttonColor="white"
-              borderColor="#FA9E4D"
-              textColor="#FA9E4D"
-              onClick={() => navigate('/waitlist')}
-            />
+            <Button variant="secondary" to="/waitlist">
+                Join Waitlist
+            </Button>
+
           </div>
 
           {/* Social Media Icons */}

@@ -1,16 +1,14 @@
 import { useLocation, Link } from "react-router-dom";
 import { useState } from "react";
-import JoinWaitlistSubmissionButton from "../buttons/JoinWaitlistSubmissionButton";
 import './Header.css';
+import { Button } from "../buttons/PrimaryButton";
 
 const Header = () => {
     const [open, setOpen] = useState(false);
     const location = useLocation();
+    const [dropdownOpen, setDropdownOpen] = useState(false);
 
-    const navLinks = [
-        { href: "/", label: "Home" },
-        { href: "/pricing", label: "Pricing" },
-    ];
+
 
     return (
         <header className="header-root relative flex justify-between items-center gap-2 w-full bg-white px-7 py-6 z-40 md:z-60">
@@ -33,13 +31,19 @@ const Header = () => {
                     </Link>
 
                     {/* About dropdown */}
-                    <div className="header-dropdown-trigger">
+                    {/* About dropdown */}
+                    <div
+                        className="header-dropdown-trigger"
+                        onMouseEnter={() => setDropdownOpen(true)}
+                        onMouseLeave={() => setDropdownOpen(false)}
+                    >
                         <span className="header-nav-link header-dropdown-label">About</span>
-                        <div className="header-dropdown-menu">
-                            <span className="header-dropdown-about-label">About</span>
-                            <Link to="/features" className="header-dropdown-item">Features</Link>
-                            <Link to="/mission" className="header-dropdown-item">Our Mission</Link>
-                        </div>
+                        {dropdownOpen && (
+                            <div className="header-dropdown-menu">
+                                <Link to="/features" className="header-dropdown-item">Features</Link>
+                                <Link to="/mission" className="header-dropdown-item">Our Mission</Link>
+                            </div>
+                        )}
                     </div>
 
                     <Link
@@ -49,9 +53,10 @@ const Header = () => {
                         Pricing
                     </Link>
 
-                    <a href="/waitlist">
-                        <JoinWaitlistSubmissionButton buttonColor="white" borderColor="#FA9E4D" textColor="#FA9E4D" />
-                    </a>
+                    <Button variant="secondary" to="/waitlist">
+                        Join waitlist
+                    </Button>
+
                 </div>
             </nav>
 
@@ -75,7 +80,9 @@ const Header = () => {
                     <Link to="/features" onClick={() => setOpen(false)} className={location.pathname === "/features" ? "underline decoration-[0.75px] underline-offset-2" : ""}>Features</Link>
                     <Link to="/mission" onClick={() => setOpen(false)} className={location.pathname === "/mission" ? "underline decoration-[0.75px] underline-offset-2" : ""}>Our Mission</Link>
                     <Link to="/pricing" onClick={() => setOpen(false)} className={location.pathname === "/pricing" ? "underline decoration-[0.75px] underline-offset-2" : ""}>Pricing</Link>
-                    <a href="/waitlist"><JoinWaitlistSubmissionButton buttonColor="white" borderColor="#FA9E4D" textColor="#FA9E4D" /></a>
+                    <Link to="/waitlist" onClick={() => setOpen(false)} className={location.pathname === "/waitlist" ? "underline decoration-[0.75px] underline-offset-2" : ""}>
+                        Join Waitlist
+                    </Link>
                 </nav>
             </div>
         </header>

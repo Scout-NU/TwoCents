@@ -90,6 +90,16 @@
   display: none;
 }
 
+.testimonials-line1 {
+  display: block;
+  font-size: clamp(38px, 5.5vw, 68px) !important;
+}
+
+.testimonials-line2 {
+  display: block;
+  font-size: clamp(28px, 4vw, 68px);
+}
+
 @media (min-width: 769px) and (max-width: 1024px) {
   .hero-subtitle-break {
     display: inline;
@@ -98,7 +108,7 @@
 
 .hero-subtitle {
   font-family: 'Outfit', sans-serif !important;
-  font-size: clamp(24px, 3.5vw, 54px) !important;
+  font-size: clamp(24px, 3.5vw, 42px) !important;
   font-weight: 600 !important;
   color: #000 !important;
   line-height: normal !important;
@@ -276,14 +286,14 @@
 #two-cent-features {
   position: relative;
   z-index: 2;
-  padding: 80px 100px;
+  padding: 80px 0;
   text-align: left;
   font-family: 'Outfit', sans-serif;
 }
 
 #two-cent-features h2 {
   font-family: 'Outfit', sans-serif !important;
-  font-size: clamp(38px, 5.5vw, 88px) !important;
+  font-size: clamp(38px, 5.5vw, 68px) !important;
   font-style: normal !important;
   font-weight: 700 !important;
   color: var(--Text-Primary, #000) !important;
@@ -293,13 +303,30 @@
   white-space: nowrap;
 }
 
+.features-heading{
+  position: relative;
+  z-index: 2;
+  padding: 0px 100px;
+  padding-top: 80px;
+  padding-bottom: 20px;
+  text-align: left;
+  font-family: 'Outfit', sans-serif;
+
+}
+
+.features-scrollingcards{
+    padding-left: 60px;
+    padding-bottom: 80px;
+
+}
+
 .features-line2 {
   display: block;
 }
 
 .features-subline {
   font-family: 'Outfit', sans-serif !important;
-  font-size: clamp(24px, 3.5vw, 54px) !important;
+  font-size: clamp(24px, 3.5vw, 42px) !important;
   font-weight: 600 !important;
   color: #000 !important;
   line-height: normal !important;
@@ -311,7 +338,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 17px 44px;
+  padding: 10px 30px;
   gap: 11px;
   border-radius: 34px;
   border: 1px solid #114A70;
@@ -378,12 +405,12 @@
 
 .testimonials-line1 {
   display: block;
-  font-size: clamp(28px, 4vw, 52px);
+  font-size: clamp(38px, 5.5vw, 68px) !important;
 }
 
 .testimonials-line2 {
   display: block;
-  font-size: clamp(28px, 4vw, 52px);
+  font-size: clamp(28px, 4vw, 68px);
 }
 
 #testiomonials > p {
@@ -414,14 +441,14 @@
   }
 
   .testimonials-line1 {
-    font-size: clamp(42px, 6.5vw, 96px);
+    font-size: clamp(42px, 6.5vw, 68px);
     font-style: normal;
     font-weight: 700;
     line-height: normal;
   }
 
   .testimonials-line2 {
-    font-size: clamp(42px, 6.5vw, 96px);
+    font-size: clamp(42px, 6.5vw, 68px);
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -502,12 +529,12 @@
   }
 
   .testimonials-line1 {
-    font-size: clamp(38px, 5.5vw, 88px);
+    font-size: clamp(38px, 5.5vw, 68px);
     font-weight: 600;
   }
 
   .testimonials-line2 {
-    font-size: clamp(38px, 5.5vw, 88px);
+    font-size: clamp(38px, 5.5vw, 68px);
     font-weight: 600;
   }
 
@@ -541,7 +568,7 @@
 
 #join-waitlist h2 {
   font-size: clamp(28px, 4vw, 52px);
-  font-weight: 700;
+  font-weight: 600;
   color: #000;
   margin: 0 0 32px;
 }

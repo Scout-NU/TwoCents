@@ -14,9 +14,9 @@
 
 .header-dropdown-menu {
   position: absolute;
-  top: -14px;
+  top: 45px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-30%);
   background: white;
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
@@ -61,13 +61,13 @@
 
 @media (min-width: 1025px) {
   .header-nav {
-    gap: 100px;
+    gap: 80px;
   }
 
   .header-nav-link {
     color: #000;
     font-family: 'Outfit', sans-serif;
-    font-size: 26px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -75,7 +75,7 @@
 
   .header-dropdown-about-label,
   .header-dropdown-item {
-    font-size: 26px;
+    font-size: 18px;
   }
 }
 
@@ -89,7 +89,7 @@
 
   .header-nav {
     display: flex;
-    gap: 100px;
+    gap: 40px;
     justify-content: center;
     align-items: center;
   }

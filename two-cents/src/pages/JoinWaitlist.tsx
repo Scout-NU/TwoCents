@@ -1,7 +1,7 @@
-import JoinWaitlistSubmissionButton from "../components/buttons/JoinWaitlistSubmissionButton";
 import { useState } from "react";
 import { supabase } from "../lib/supabase";
 import './JoinWaitlist.css';
+import { Button } from "../components/buttons/PrimaryButton";
 
 function JoinWaitlist() {
     const[submitted, setSubmitted] = useState(false);
@@ -9,7 +9,7 @@ function JoinWaitlist() {
     const[lastName, setLastName] = useState("");
     const[email, setEmail] = useState("");
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
 
         const { error } = await supabase
@@ -74,7 +74,7 @@ function JoinWaitlist() {
 
                     {/* "Join Waitlist" button */}
                     <div className="flex justify-end">
-                        <JoinWaitlistSubmissionButton buttonColor="white" borderColor="#FA9E4D" textColor="#FA9E4D" />
+                        <Button variant="secondary-filled">Join Waitlist</Button>
                     </div>
                 </div>
             </form>

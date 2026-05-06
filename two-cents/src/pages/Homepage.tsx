@@ -1,26 +1,60 @@
 import './Homepage.css';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import JoinWaitlistSubmissionButton from '../components/buttons/JoinWaitlistSubmissionButton';
 import CentoSpeechBubble from '../components/SpeechBubble';
 import WaitListJoin from '../components/WaitlistJoin';
+import { Button } from '../components/buttons/PrimaryButton';
+import { FeatureCardScroller } from '../components/ui/FeatureCardScroller';
 
 function Homepage() {
-  const navigate = useNavigate();
-  const [browseHovered, setBrowseHovered] = useState(false);
-  const [browsePressed, setBrowsePressed] = useState(false);
 
-  const getBrowseBackground = () => {
-    if (browsePressed) return 'linear-gradient(0deg, rgba(249, 198, 105, 0.27) 0%, rgba(249, 198, 105, 0.27) 100%), #FFF';
-    if (browseHovered) return '#FFF';
-    return 'linear-gradient(0deg, #1F6A9D 0%, #1F6A9D 100%), #FFF';
-  };
+  const cards = [
+  {
+    title: "Proactive Spending Alerts",
+    bullets: ["Get notified when you spend, see what's left in real-time", "Clear guidance without judgment", "Know before you overspend, not after"],
+    image: "/images/TwoCentsNotifs.png",
+    imageAlt: "Scheduling feature",
+  },
+  {
+    title: "Priorities (Not Budgets)",
+    bullets: ["Get notified when you spend, see what's left in real-time", "Flexible priorities that adapt to your life", "Empowering language that reduces financial anxiety"],
+    image: "/images/TwoCentsPriorites.png",
+  },
+  // {
+  //   title: "Real-Time Bank Sync",
+  //   bullets: ["Automatic transaction updates via Plaid integration", "See your current balances instantly", "No manual entry, no delayed data"],
+  //   image: "/images/TwoCentsDashboard.png",
+  //   imageAlt: "Scheduling feature",
+  // },
+  {
+    title: "Savings Goals with Progress Tracking",
+    bullets: ["Set custom savings goals with target amounts and dates", "Visual progress bars", "Security Fund catches unallocated savings automatically"],
+    image: "/images/TwoCentsSavingsGoals.png",
+    imageAlt: "Savings goals feature",
+  },
+  {
+    title: "Smart Auto-Categorization",
+    bullets: ["AI that automatically categorizes transactions to priorities", "Learns your spending patterns over time", "One-tap to recategorize if needed"],
+    image: "/images/TwoCentCate.png",
+    imageAlt: "Scheduling feature",
+  },
+  {
+    title: "Flexible Cycle System",
+    bullets: ["Choose weekly, bi-weekly, or monthly money cycles", "Matches your actual income schedule (paycheck timing)", "Auto-resets with intelligent carryover"],
+    image: "/images/TwoCentsCycles.png",
+  },
+  {
+    title: "Dashboard Financial Health Overview",
+    bullets: ["See your complete financial picture at a glance", "Net worth tracking across all accounts", "Safe-to-Spend shows today's available money"],
+    image: "/images/TwoCentsOverview.png",
+    imageAlt: "Scheduling feature",
+  },
+  {
+    title: "Overdraft Protection Indicators",
+    bullets: ["Visual warnings when approaching priority limits", "See exactly how much you've overspent", "Gentle check-ins, not aggressive alerts"],
+    image: "/images/TwoCentsOverdraft.png",
+  },
+  
+];
 
-  const getBrowseColor = () => {
-    if (browseHovered) return '#1F6A9D';
-    return '#FFF';
-  };
 
   return (
     <>
@@ -42,7 +76,9 @@ function Homepage() {
               <p className="hero-subtitle">
                 Spend and save with TwoCents, your allocation<br className="hero-subtitle-break" /> assistant.
               </p>
-              <JoinWaitlistSubmissionButton buttonColor="white" borderColor="#FA9E4D" textColor="#FA9E4D" onClick={() => navigate('/waitlist')} className="hero-waitlist-btn" />
+              <Button variant="secondary" to="/waitlist">
+                Join waitlist
+              </Button>
             </div>
           </div>
         </section>
@@ -59,27 +95,22 @@ function Homepage() {
         </div>
 
         <section id="two-cent-features">
-          <h2>We focus on financial health, <span className="features-line2">not restrictions.</span></h2>
-          <p className="features-subline">Let's take a look at what TwoCents features.</p>
-          <Link
-            to="/features"
-            className="features-browse-btn"
-            style={{
-              background: getBrowseBackground(),
-              color: getBrowseColor(),
-              transition: 'background 0.2s ease, color 0.2s ease',
-            }}
-            onMouseEnter={() => setBrowseHovered(true)}
-            onMouseLeave={() => { setBrowseHovered(false); setBrowsePressed(false); }}
-            onMouseDown={() => setBrowsePressed(true)}
-            onMouseUp={() => setBrowsePressed(false)}
-          >Browse More</Link>
-
-          <div id="feature-cards">
-            <img src="/images/feature 1.png" alt="Proactive spending feature" />
-            <img src="/images/feature 2.png" alt="Priorities (not budgets) feature" />
-            <img src="/images/feature 3.png" alt="Real-time bank sync feature" />
+          <div className="features-heading">
+            <h2>We focus on financial health, <span className="features-line2">not restrictions.</span></h2>
+            <p className="features-subline">Let's take a look at what TwoCents features.</p>
+            
+            <Button to="/features">
+              Browse More
+            </Button>
           </div>
+          <div className="features-scrollingcards">
+            <FeatureCardScroller cards={cards} />
+
+
+          </div>
+          
+
+
         </section>
 
         {/* Hill zone 2: Layered Hill 2 as background for testimonials */}
@@ -92,7 +123,7 @@ function Homepage() {
                   <span className="testimonials-line1">Don't just take our</span>
                   <span className="testimonials-line2">two cents!</span>
                 </h2>
-                <p>Hear what users have to say!</p>
+                <p>Hear what real users have to say!</p>
                 <img src="/images/cento-pointing.png" alt="Cento pointing" className="cento-pointing-img" />
               </div>
               <div id="user-testiomonials">

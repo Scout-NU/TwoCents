@@ -1,6 +1,6 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import JoinWaitlistSubmissionButton from "./buttons/JoinWaitlistSubmissionButton";
+import { Button } from "./buttons/PrimaryButton";
 
 
 interface WaitListJoinProps {
@@ -9,7 +9,6 @@ interface WaitListJoinProps {
 
 const WaitListJoin = ({ imageSrc }: WaitListJoinProps) => {
     const [, setIsSmallPhone] = useState(false);
-    const navigate = useNavigate();
 
     useEffect(() => {
         setIsSmallPhone(window.innerWidth < 376);
@@ -36,14 +35,10 @@ const WaitListJoin = ({ imageSrc }: WaitListJoinProps) => {
                         confidence.
                     </span>
                 </p>
-                <JoinWaitlistSubmissionButton
-                    buttonColor="white"
-                    borderColor="#FA9E4D"
-                    textColor="#FA9E4D"
-                    fontSize="20px"
-                    padding="10px 30px"
-                    onClick={() => navigate('/waitlist')}
-                />
+                <Button variant="secondary" to="/waitlist">
+                    Join Waitlist
+                </Button>
+
             </div>
         </div>
     );
