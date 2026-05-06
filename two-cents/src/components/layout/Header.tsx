@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import { useLocation, Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import './Header.css';
@@ -32,6 +33,12 @@ useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
 }, []);
+
+    useEffect(() => {
+        setVisible(true);
+        setScrolled(false);
+        lastScrollY.current = window.scrollY;
+    }, [location.pathname]);
 
     const handleMouseEnter = () => {
         if (closeTimer.current) clearTimeout(closeTimer.current);
