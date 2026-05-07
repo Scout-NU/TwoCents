@@ -61,6 +61,22 @@ body {
 .bounce-up.delay-3 { transition-delay: 0.3s; }
 .bounce-up.delay-4 { transition-delay: 0.4s; }
 
+.pop-in {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.pop-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.pop-in.delay-1 { transition-delay: 0.1s; }
+.pop-in.delay-2 { transition-delay: 0.2s; }
+.pop-in.delay-3 { transition-delay: 0.3s; }
+.pop-in.delay-4 { transition-delay: 0.4s; }
+
 /* rating styling */
 .react-simple-star-rating svg {
   display: inline !important;

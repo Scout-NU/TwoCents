@@ -15,7 +15,7 @@ export const QuoteCard: React.FC<QuoteCardProps> = ({
     <div
       style={{
         display: "flex",
-        width: "569px",
+        width: "clamp(400px, 100%, 500px)",
         height: "230.333px",
         padding: "25px 30px",
         alignItems: "center",

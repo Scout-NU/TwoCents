@@ -77,6 +77,7 @@ const baseStyles: React.CSSProperties = {
   transition: "background 0.2s ease, color 0.2s ease, filter 0.2s ease, opacity 0.2s ease",
   whiteSpace: "nowrap",
   textDecoration: "none",
+  zIndex: 10,
 };
 
 export const Button: React.FC<ButtonProps> = ({

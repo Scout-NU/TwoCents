@@ -15,27 +15,19 @@ const CentoSpeechBubble = () => {
           overflow: 'visible',
         }}
       >
-        <FadeUp variant="bounce">
-          <div style={{ position: 'relative' }}>
-
-          {/* Blue offset background layer — sits 8px right + down of bubble */}
-          <img
-            src="/images/CentoSpeechBubble.png"
-            aria-hidden="true"
-            className="speech-bubble-bg"
-            style={{
-              position: 'absolute',
-              top: '3px',
-              left: '8px',
-              width: '100%',
-              height: 'auto',
-              display: 'block',
-            }}
-          />
-
-
-        </div>
-
+        <FadeUp
+          variant="pop"
+          threshold={0.5}
+          style={{ position: 'relative', width: '100%', height: 'clamp(200px, 30vw, 500px)' }}
+        >
+          <div style={{ position: 'absolute', top: '2%', right: 'min(10px, 7vw)', width: 'clamp(280px, 50vw, 780px)' }}>
+            <img
+              src="/images/CentoSpeechBubble.png"
+              aria-hidden="true"
+              className="speech-bubble-bg"
+              style={{ width: '100%', height: 'auto', display: 'block' }}
+            />
+          </div>
         </FadeUp>
         
       </div>
@@ -49,7 +41,7 @@ const CentoSpeechBubble = () => {
           position: 'absolute',
           bottom: 0,
           height: 'auto',
-          maxWidth: 'none',
+          width: 'clamp(80px, 25vw, 300px)',
         }}
       />
     </div>

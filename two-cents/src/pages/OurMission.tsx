@@ -40,7 +40,7 @@ const OurMission = () => {
                 <FadeUp delay={1}>
                 <div className="px-4 md:px-0 pt-4">
                     <div className="bg-white w-full max-w-2xl flex justify-center mx-auto px-6 md:w-137.5 md:px-8 py-6 md:py-8 md:mb-16 mb-8 drop-shadow-xl rounded-2xl lg:w-200">
-                        <p className="text-sm md:text-xl text-center leading-snug tracking-wider m-0">
+                        <p className="text-sm md:text-xl leading-snug tracking-wider m-0">
                             We believe financial anxiety doesn't come from lack of willpower - it comes from lack of clarity.
                             Our mission is to make money awareness a lifestyle—something social, empowering, and intuitive—not
                             a chore or a shame trigger. Through proactive spending alerts, psychology-informed design, and empowering language,
