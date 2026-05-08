@@ -1,30 +1,37 @@
+import { Link } from 'react-router-dom';
+import './Footer.css';
+import { Button } from '../buttons/PrimaryButton';
+
 function Footer() {
+
   return (
     <footer className="footer">
       <div className="footer-content">
         {/* Left side - Navigation Links */}
         <nav className="footer-nav">
           <div className="footer-nav-column">
-            <a href="#home" className="footer-link">Home</a>
-            <a href="#features" className="footer-link">Features</a>
+            <Link to="/" className="footer-link">Home</Link>
+            <Link to="/features" className="footer-link">Features</Link>
           </div>
           <div className="footer-nav-column">
-            <a href="#mission" className="footer-link">Our Mission</a>
-            <a href="#pricing" className="footer-link">Pricing</a>
+            <Link to="/mission" className="footer-link">Our Mission</Link>
+            <Link to="/pricing" className="footer-link">Pricing</Link>
           </div>
         </nav>
 
         {/* Right side - CTA and Social Links */}
         <div className="footer-right">
-          {/* Mascot/Logo */}
-          <div className="footer-mascot">
-            <img src="/assets/mascot.png" alt="TwoCents Mascot" />
-          </div>
+          <div className="footer-cta-stack">
+            {/* Mascot/Logo */}
+            <div className="footer-mascot">
+              <img src="/images/Cento_walk.svg" alt="TwoCents Mascot" />
+            </div>
 
-          {/* Join Waitlist Button */}
-          <button className="join-waitlist-btn">
-            Join Waitlist
-          </button>
+            <Button variant="secondary" to="/waitlist">
+                Join Waitlist
+            </Button>
+
+          </div>
 
           {/* Social Media Icons */}
           <div className="social-links">
